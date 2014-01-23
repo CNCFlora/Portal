@@ -1,0 +1,46 @@
+{{> header}}
+
+<div class="sixteen columns intro">
+    <img src="/resources/img/quemsomos.jpg" alt="Quem Somos - CNCFlora" />
+</div>
+
+<div class="five columns menu">
+    <ul>
+        <li><a href="/pt-br/quem-somos" class='quem-somos'>Sobre o CNCFlora</a></li>
+        <li><a href="/pt-br/equipe/coordenacao" class='equipe-link'>Equipe</a></li>
+        <li><a href="/pt-br/contato" class='contato-link'>Contato</a></li>
+        <li class="submenu">
+            <ul>
+                <li><a href="/pt-br/equipe/coordenacao" class='coordenacao'>Coordena&ccedil;&atilde;o</a></li>
+                <li><a href="/pt-br/equipe/analise" class='analise'>Lista vermelha</a></li>
+                <li><a href="/pt-br/equipe/planos" class='planos'>Planos de ação</a></li>
+                <li><a href="/pt-br/equipe/exsitu" class='exsitu'>Ex-Situ</a></li>
+                <li><a href="/pt-br/equipe/sistemas" class='sistemas'>Sistemas e SIG</a></li>
+                <li><a href="/pt-br/equipe/colecoes" class='colecoes'>Cole&ccedil;&otilde;es Bot&acirc;nicas</a></li>
+                <li><a href="/pt-br/equipe/comunicacao" class='comunicacao'>Comunica&ccedil;&atilde;o</a></li>
+                <li><a href="/pt-br/equipe/voluntario" class='voluntario'>Volunt&aacute;rios</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="ten columns content">
+    <div class="membros">
+        {{#equipe}}
+            <div class="membro">
+                <img src="sites/default/files/{{picture}}" alt="{{title}}" />
+                <!--
+                <h3>{{title}}</h3>
+                -->
+                <p>{{{body}}}</p>
+                <p><a href="{{lattes}}">Curr&iacute;culo lattes</a></p>
+            </div>
+        {{/equipe}}
+    </div>
+</div>
+<script type="text/javascript">
+        head.js('/portal/resources/js/equipe.js').ready(function(){equipe();});
+</script>
+
+{{> footer}}
+

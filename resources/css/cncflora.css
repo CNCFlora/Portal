@@ -1,0 +1,504 @@
+* {
+    font-family: "Questrial","Quickand","Helvetica Neue","Helvetica",sans-serif !important;
+    color: #333333;
+}
+
+h1,h2,h3,h4 {
+    letter-spacing:-0.05em;
+}
+
+#up {
+    float :right;
+    display: inline;
+}
+
+#greeting {
+    display: block;
+    border-left: 6px solid #20AE54;
+    margin: 0 0 0 10px;
+    padding-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#greeting>h1 {
+    color: #20AE54;
+    font-size: 22px;
+    font-weight:normal;
+    margin:0;
+    line-height: 28px;
+}
+
+#greeting>h2 {
+    font-size: 14px;
+    font-weight: normal;
+    margin:0;
+    line-height: 18px;
+}
+
+header>a>h1 {
+    color: transparent;
+    background: url('../img/logo.png') no-repeat;
+    background-size: 200px;
+    float:left;
+    display: block;
+    width: 220px;
+    margin-top: 65px;
+    margin-bottom: 0;
+}
+
+header>h2 {
+    background: url("../img/jbrj.png");
+    background-repeat: no-repeat;
+    float:left;
+    margin-top: 29px;
+    margin-left: -280px;
+    height: 73px;
+    color: transparent;
+}
+
+#floral {
+    float:right;
+    display: block;
+    height: 120px;
+    width: 700px;
+    overflow: hidden;
+}
+
+nav>ul {
+    border-top: 2px solid #20AE54;
+    padding-left: 10px;
+}
+
+nav>ul>li {
+    display: table;
+    float: left;
+    border-right: 1px solid #20AE54;
+}
+nav>ul>li:last-child {
+    border-right: none;
+}
+
+nav>ul>li>a {
+    display: block;
+    width:auto;
+    padding-left: 19px;
+    padding-right: 19px;
+    text-transform:lowercase;
+    text-decoration:none;
+    font-size: 16px;
+    padding-top: 25px;
+    padding-bottom: 4px;
+}
+nav>ul>li>a:hover {
+    background-color: #20AE54;
+    color: #fff;
+}
+nav>ul>li>a.red:hover {
+    background-color: #D30100;
+}
+
+#redlisting-page nav>ul>li>a.red {
+    color: #fff;
+    background-color: #D30100;
+}
+
+.intro {
+    border-bottom: 1px #20AE54 solid;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    height: 220px;
+}
+
+.intro>img {
+     margin-left: 10px;
+}
+
+.intro #slides {
+    padding-left: 10px;
+}
+.intro #slides img {
+    margin-left: 0;
+}
+
+#slides>li {
+    display: block;
+    width: 100px;
+    height: 200px;
+    float: left;
+    overflow: hidden;
+}
+
+#slides>li>a {
+    text-decoration:none;
+}
+
+#slides>li>a>img {
+    height: 200px
+}
+#slides>li>a>span {
+    width: 300px;
+    color: #fff;
+    margin-top:-50px;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+#slides>li.active>a>span {
+    display:block;
+}
+#slides>li.notactive>a>span {
+    display: none;
+}
+
+#index-page .node h2 {
+    color: #20AE54;
+    text-align:center;
+    font-size:18px;
+    font-weight:normal;
+    margin: 0 5px 5px 0;
+}
+
+#index-page .node p {
+    text-align:justify;
+}
+
+#index-page .node img {
+    width: 300px;
+    height: 95px;
+}
+
+strong {
+    color: #009E34;
+}
+
+footer {
+    border-top: 1px #20ae54 solid;
+    clear: both;
+    display: table;
+}
+
+footer>div {
+    margin-top: 30px;
+}
+
+footer .logos img {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#probio {
+    height: 55px;
+}
+
+#mma {
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+#iucn {
+    height:55px;
+    margin-bottom: -5px;
+}
+
+footer .info  p {
+    text-align: right;
+}
+
+.container .offset-by-one {
+    padding-left: 50px;
+}
+
+.menu {
+    padding-top: 25px;
+    border-right: 1px #20ae54 solid;
+    min-height: 180px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.menu ul li {
+    margin-bottom: 0;
+}
+
+.menu ul li a {
+    color: #222222;
+    font-size: 12;
+    padding-left: 2px;
+    padding-right: 5px;
+    text-decoration: none;
+    text-transform: lowercase;
+}
+
+.menu ul li a.active {
+    color: #EEEEEE;
+    border: 1px solid #40CE74;
+    background-color:#20AE54;
+}
+
+.content {
+    margin-top: 20px;
+    padding-right: 50px;
+    width: 530px !important;
+    margin-left: 35px !important;
+    margin-bottom: 30px;
+    font-size: 12px;
+}
+
+.content a {
+    color: #20AE54;
+}
+
+.content strong {
+    font-weight:bold;
+    color: #333;
+}
+
+#quem-somos-page nav .quem-somos-link ,
+.portal-pt-br-equipe-section .quem-somos-link,
+#contato-page .quem-somos-link, #contato-ok-page .quem-somos-link {
+    background-color: #20AE54;
+    color: #fff;
+}
+
+#quem-somos-page .menu .quem-somos {
+    background-color: #20AE54;
+    color: #fff;
+    padding-left: 2px;
+    border: 1px #eee solid;
+}
+
+.menu .submenu {
+    display: none;
+}
+
+.portal-pt-br-equipe-section .menu .equipe-link {
+    background-color: #20AE54;
+    color: #fff;
+    padding-left: 2px;
+    border: 1px #eee solid;
+}
+
+.portal-pt-br-equipe-section .menu .submenu {
+    display: block;
+}
+
+.menu>ul>li.submenu {
+    float: right;
+    margin:0 ; 
+    margin-top: -35px;
+}
+
+.menu>ul>li.submenu>ul>li>a {
+    color: #20AE54;
+}
+
+#coordenacao-page .submenu .coordenacao ,
+#analise-page .submenu .analise ,
+#gis-page .submenu .gis ,
+#colecoes-page .submenu .colecoes ,
+#sistemas-page .submenu .sistemas ,
+#planos-page .submenu .planos ,
+#voluntario-page .submenu .voluntario ,
+#exsitu-page .submenu .exsitu ,
+#comunicacao-page .submenu .comunicacao {
+    background-color: #20AE54;
+    color: #fff;
+    padding-left: 2px;
+    border: 1px #eee solid;
+}
+
+.portal-pt-br-equipe-section .content {
+    overflow: hidden;
+}
+
+.membros {
+    margin-left: 20px;
+    left:0;
+}
+
+.membro {
+    float: left;
+    display: block;
+    width: 500px;
+    margin-right: 80px;
+    height: 400px;
+}
+
+.membro img {
+    float: left;
+    border: 1px #ccc solid;
+    padding: 5px;
+    border-radius: 3px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    width: 180px;
+}
+
+.membro b {
+    font-weight:bolder;
+}
+
+.portal-pt-br-equipe-section .left {
+        width: 0; 
+        height: 0; 
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent; 
+        border-right: 10px solid #ddd;
+        margin-top: 150px;
+        float: left;
+}
+
+.portal-pt-br-equipe-section .right {
+        width: 0; 
+        height: 0; 
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 10px solid #ddd;
+        float: right;
+        margin-top: -250px;
+}
+
+.portal-pt-br-equipe-section .ten.columns.content {
+    width: 550px !important;
+    padding-right: none;
+}
+
+#contato-page .contato-link, #contato-ok-page .contato-link {
+    background-color: #20AE54;
+    color: #fff;
+    padding-left: 2px;
+    border: 1px #eee solid;
+}
+
+#contato-page input, #contato-page textarea{ 
+    width: 100%;
+}
+
+.portal-pt-br-conservacao-section .conservacao-link {
+    background-color: #20AE54;
+    color: #fff;
+}
+
+#acoes-page .link-acoes ,
+#redlist-page .link-redlist ,
+#lista-page .link-lista ,
+#ameacas-page .link-ameacas ,
+#areas-page .link-areas ,
+#biodiversidade-page .link-biodiversidade ,
+#politicas-page .link-politicas {
+    background-color: #20AE54;
+    color: #fff;
+    padding-left: 2px;
+    border: 1px #eee solid;
+}
+
+.portal-pt-br-expedicoes-section .expedicoes-link {
+    background-color: #20AE54;
+    color: #fff;
+}
+
+.menu .active {
+    background-color: #20AE54;
+    color: #fff;
+    padding-left: 2px;
+    border: 1px #eee solid;
+}
+
+.portal-pt-br-publicacoes-section .publicacoes-link {
+    background-color: #20AE54;
+    color: #fff;
+}
+
+#documentos-page .documentos , #publicacao-page .publicacao {
+    background-color: #20AE54;
+    color: #fff;
+    padding-left: 2px;
+    border: 1px #eee solid;
+}
+
+#docs {
+}
+
+.doc {
+    display: block;
+    width: 101px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height:250px;
+}
+
+.doc img {
+    width: 100px;
+}
+
+#legislacao-page .legislacao-link {
+    background-color: #20AE54;
+    color: #fff;
+}
+
+.portal-pt-br-noticia-section .noticias-link ,
+#noticias-page .noticias-link {
+    background-color: #20AE54;
+    color: #fff;
+}
+
+.close {
+    color: #333;
+    position: absolute;
+    top: 245px;
+    left: 890px;
+    cursor: pointer;
+    text-transform: lowercase;
+}
+
+.intro.minify {
+    height: 25px;
+}
+
+.intro.minify * {
+    display:none;
+}
+
+.intro.minify span.close {
+    display: block;
+}
+
+.portal-pt-br-expedicoes-section .menu ul li {
+    margin-bottom: 8px;
+}
+
+#legislacao-page .menu p {
+    padding-right: 15px;
+}
+
+#map {
+    height: 228px;
+}
+
+#OpenLayers.Control.Zoom_5 {
+    display: none !important;
+}
+
+iframe {
+    width: 520px;
+    height: 340px;
+}
+
+.lt-768 #floral {
+    display: none;
+}
+
+.lt-768 nav>ul>li {
+    display: block;
+    float: none;
+}
+
+.lt-768 .intro {
+    display: none;
+}
+

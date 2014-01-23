@@ -1,0 +1,32 @@
+{{> header}}
+
+<div class="sixteen columns intro">
+    <div id="map"></div>
+</div>
+
+<div class="five columns menu">
+    <ul>
+        {{#nodes}}
+        <li><a href="/pt-br/expedicoes/{{nid}}" class='expedicao {{marked}} {{biomas}}'>{{titulo}}</a></li>
+        {{/nodes}}
+    </ul>
+</div>
+
+<div class="ten columns content">
+    <div class="photos">
+    {{#photos}}
+    <a href="{{url}}" rel="prettyPhoto[pp_gal]"><img src="{{thumb}}" width='60' height='60' /></a>
+    {{/photos}}
+    </div>
+    {{{content}}} 
+</div>
+<link rel="stylesheet" href="/resources/css/prettyPhoto.css" />
+<script type="text/javascript">
+    head.js('/portal/resources/js/expedicoes.js')
+        .js('/portal/resources/js/jquery.prettyPhoto.js')
+        .js('/portal/resources/js/biomas_map.js')
+        .js('http://openlayers.org/api/OpenLayers.js')
+        .ready(function(){expedicoes(); biomas();});
+</script>
+
+{{> footer}}

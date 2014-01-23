@@ -1,0 +1,26 @@
+{{> header}}
+
+<div class="sixteen columns intro">
+    {{{intro}}}
+</div>
+
+<div class="five columns menu">
+    <ul>
+        <li><a href="/pt-br/publicacoes/publicacao" class='publicacao'>Publica&ccedil;&otilde;es CNCFlora</a></li>
+        <li><a href="/pt-br/publicacoes/documentos" class='documentos'>Documentos Norteadores</a></li>
+    </ul>
+</div>
+
+<div class="ten columns content">
+    <ul id='docs'>
+        {{#docs}}
+        <li class='doc'>
+            <img src="{{thumb}}" alt="{{title}}" /><br />
+            <a href="{{url}}">{{title}}</a>
+        </li>
+        {{/docs}}
+    </ul>
+</div>
+
+{{> footer}}
+

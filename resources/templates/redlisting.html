@@ -1,0 +1,48 @@
+{{> header}}
+
+<div class="sixteen columns intro">
+    <img src="/resources/img/vermelha.jpg" alt="Quem Somos - CNCFlora" />
+</div>
+
+<div class="five columns menu">
+    <p><strong>Listagem por família</strong></p>
+    <ul>
+        {{#families}}
+        <li><a href="/pt-br/redlisting/family/{{.}}" class='family-{{.}} family'>{{.}}</a></li>
+        {{/families}}
+    </ul>
+</div>
+
+<div class="ten columns content">
+    {{{html}}}
+    <p><strong>{{family}}</strong></p>
+    <ul class='spps'>
+        {{#species}}
+            {{#ok}}
+            <li class='spp'><a target='_blank' href="/../plataforma2/book/pub.php?id={{Id}}"><i>{{{NomeHTML2}}}</i></a> {{Assessment}}</li>
+            {{/ok}}
+            {{^ok}}
+            <li class='spp'><span ><i>{{{NomeHTML2}}}</i></span> {{Assessment}} (em revisão)</li>
+            {{/ok}}
+        {{/species}}
+    </ul>
+</div>
+
+<style type="text/css">
+    .menu ul li a.family {
+        text-transform: capitalize;
+    }
+    .content a i {
+        color: #20AE54;
+    }
+    ul.spps li.spp {
+        margin:0;
+    }
+    i {
+        font-style:italic !important;
+    }
+</style>
+
+{{> footer}}
+
+

@@ -1,0 +1,52 @@
+{{> header}}
+
+<div class="sixteen columns intro">
+    <!--
+    <img src="/resources/img/vermelha.jpg" alt="Quem Somos - CNCFlora" />
+    -->
+</div>
+
+<div class="five columns menu">
+    <img src="/resources/img/livrovermelho.png" alt="Livro Vermelho de Espécies Ameaçadas do Brasil" />
+    <p><a href="/../LivroVermelho.pdf" id='down-livro'>download do livro</a></p>
+</div>
+
+<div class="ten columns content">
+    {{{html}}}
+</div>
+
+<style type="text/css">
+    .menu img {
+        width: 95%;
+    }
+
+    .menu p {
+        text-align: center;
+    }
+</style>
+<script type="text/javascript">
+    head.js("/portal/resources/js/jquery.min.js")
+        .ready(function(){
+            $(".close").click();
+            jQuery('a#down-livro').on('click', function(event) {
+                var el = jQuery(this);
+                elEv = {};
+                elEv.category = "download";
+                elEv.action = "click-pdf";
+                elEv.label = "Livro Vermelho";
+                elEv.loc = el.attr("href");
+         
+                _gaq.push(['_trackEvent',
+                            elEv.category.toLowerCase(), 
+                            elEv.action.toLowerCase(), 
+                            elEv.label.toLowerCase(), 
+                            0,
+                            false]);
+                setTimeout(function() { location.href = elEv.loc; }, 1500);
+                return false;
+            });
+        });
+</script>
+
+{{> footer}}
+

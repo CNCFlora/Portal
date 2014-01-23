@@ -1,0 +1,31 @@
+{{> header}}
+
+<div class="sixteen columns intro">
+    <img src="/resources/img/noticias.jpg" alt="" />
+</div>
+
+<div class="five columns menu">
+    <p>&nbsp;</p>
+</div>
+
+<div class="ten columns content">
+    <p>
+        {{{date}}}
+    </p>
+    <div class="photos">
+    {{#photos}}
+        <a href="{{url}}" rel="prettyPhoto[pp_gal]"><img src="{{thumb}}" width='60' height='60' /></a>
+    {{/photos}}
+    </div>
+    {{{content}}}
+</div>
+<link rel="stylesheet" href="/resources/css/prettyPhoto.css" />
+<script type="text/javascript">
+    head.js('/portal/resources/js/expedicoes.js')
+        .js('/portal/resources/js/jquery.prettyPhoto.js')
+        .ready(function(){expedicoes();});
+</script>
+
+{{> footer}}
+
+

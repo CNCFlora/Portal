@@ -1,0 +1,9 @@
+{
+    "require": {
+        "restserver/restserver":"dev-master",
+        "vierbergenlars/simpletest": "dev-master",
+        "justinrainbow/json-schema":"dev-master",
+        "mustache/mustache": "dev-master",
+        "jaz303/phake": "dev-master"
+    }
+}
