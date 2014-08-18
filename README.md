@@ -1,3 +1,0 @@
-# Portal
-
-CNCFlora web portal

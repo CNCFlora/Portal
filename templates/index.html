@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="sixteen columns intro">
+    <ul id='slides'>
+        <li><a href="#"><img src="/static/img/vermelha.jpg" alt="Lista Vermelha" /></a></li>
+        <li><a href="#"><img src="/static/img/lista.jpg" alt="Flora do Brasil" /></a></li>
+        <li><a href="#"><img src="/static/img/conservacao.jpg" alt="Conserva&ccedil;&atilde;o" /></a></li>
+        <li><a href="#"><img src="/static/img/exp.jpg" alt="Expedi&ccedil;&otilde;es" /></a></li>
+    </ul>
+    <script type="text/javascript">
+        head.js('static/js/intro.js').ready(function(){intro();});
+    </script>
+</div>
+
+<div class="one-third column node">
+    <h2>Apresentação</h2>
+    <p><img src="/static/img/lauraceae.jpg" alt="Apresentações" /></p>
+    <p>O <strong>Centro Nacional de Conservação da Flora</strong> (CNCFlora) é referência nacional em geração, coordenação e difusão de informação sobre biodiversidade e conservação da flora brasileira ameaçada de extinção.</p>
+</div>
+
+<div class="one-third column node">
+    <a href="/pt-br/livro"><img src="/static/img/livrovermelho.png" id="imglivro" alt="Livro Vermelho de espécies ameaçadas de extinsão do Brasil" /></a>
+    <style type="text/css">
+        #index-page .node img#imglivro {
+            height: auto;
+            width: 95%;
+            margin: 10px;
+        }
+    </style>
+</div>
+
+<div class="one-third column node">
+    <h2>Not&iacute;cias</h2>
+    <p><img src="/static/img/uva.jpg" alt="Noticias" /></p>
+    <p>news</p>
+</div>
+
+{% endblock %}

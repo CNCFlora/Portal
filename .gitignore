@@ -1,3 +1,6 @@
 composer.phar
 vendor
 config.ini
+.DS_store
+.vagrant/
+env/

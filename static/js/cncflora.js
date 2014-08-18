@@ -3,10 +3,10 @@ if (typeof String.prototype.endsWith !== 'function') {
         return this.indexOf(suffix, this.length - suffix.length) !== -1;
     };
 }
-head.js('/portal/resources/js/jquery.min.js')
-    .js('/portal/resources/js/bootstrap.min.js')
-    .js('/portal/resources/js/floral.js')
-    .js('/portal/resources/js/jquery.pjax.js')
+head.js('/static/js/jquery.min.js')
+    .js('/static/js/bootstrap.min.js')
+    .js('/static/js/floral.js')
+    .js('/static/js/jquery.pjax.js')
     .ready(function(){
         floral();
         $(document).pjax('nav a', '#content');
