@@ -272,7 +272,7 @@ footer .info  p {
 }
 
 .menu .submenu {
-    display: none;
+    /*display: none;*/
 }
 
 .portal-pt-br-equipe-section .menu .equipe-link {
@@ -288,7 +288,7 @@ footer .info  p {
 
 .menu>ul>li.submenu {
     float: right;
-    margin:0 ; 
+    margin:0 ;
     margin-top: -35px;
 }
 
@@ -342,19 +342,19 @@ footer .info  p {
     font-weight:bolder;
 }
 
-.portal-pt-br-equipe-section .left {
-        width: 0; 
-        height: 0; 
+.pt-br-equipe-section .left {
+        width: 0;
+        height: 0;
         border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent; 
+        border-bottom: 10px solid transparent;
         border-right: 10px solid #ddd;
         margin-top: 150px;
         float: left;
 }
 
-.portal-pt-br-equipe-section .right {
-        width: 0; 
-        height: 0; 
+.pt-br-equipe-section .right {
+        width: 0;
+        height: 0;
         border-top: 10px solid transparent;
         border-bottom: 10px solid transparent;
         border-left: 10px solid #ddd;
@@ -374,7 +374,7 @@ footer .info  p {
     border: 1px #eee solid;
 }
 
-#contato-page input, #contato-page textarea{ 
+#contato-page input, #contato-page textarea{
     width: 100%;
 }
 
@@ -501,4 +501,3 @@ iframe {
 .lt-768 .intro {
     display: none;
 }
-

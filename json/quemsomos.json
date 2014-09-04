@@ -1,0 +1,25 @@
+{
+  "pt-br":{
+        "menu":{
+              "whoweare":"sobre o cncflora",
+              "equipe":"equipe",
+              "contact":"contato"
+        },
+        "menu-equipe":{
+              "coordenacao":"coordenação",
+              "analise":"lista vermelha",
+              "planos":"planos de ação",
+              "exsitu":"ex-situ",
+              "sistemas":"sistemas e sig",
+              "colecoes":"coleções botânicas",
+              "comunicacao":"comunicação",
+              "voluntario":"voluntários"
+        },
+        "form-contato":{
+              "name":"Seu nome",
+              "email":"seu e-mail",
+              "subject":"Assunto",
+              "message":"Mensagem"
+        }
+  }
+}

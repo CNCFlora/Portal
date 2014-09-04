@@ -6,15 +6,10 @@
 
 <div class="five columns menu">
     <ul>
-        <li><a href="/pt-br/quem-somos" class='quem-somos'>Sobre o CNCFlora</a></li>
-        <li><a href="/pt-br/equipe/coordenacao" class='equipe-link'>Equipe</a></li>
-        <li><a href="/pt-br/contato" class='contato-link'>Contato</a></li>
+        <li><a href="/pt-br/quem-somos" class='quem-somos'>{{menu['whoweare']}}</a></li>
+        <li><a href="/pt-br/equipe/coordenacao" class='equipe-link'>{{menu['equipe']}}</a></li>
+        <li><a href="/pt-br/contato" class='contato-link'>{{menu['contact']}}</a></li>
     </ul>
 </div>
-
-<div class="ten columns content">
-    O <strong>Centro Nacional de Conservação da Flora</strong> (CNCFlora) é referência nacional em geração, coordenação e difusão de informação sobre biodiversidade e conservação da flora brasileira ameaçada de extinção. Criado em 2008 como uma coordenação geral sob a infra estrutura da Diretoria de Pesquisas do <a href="http://www.jbrj.gov.br/">Instituto de Pesquisas Jardim Botânico do Rio de Janeiro</a> – JBRJ, o CNCFlora conta com recursos financeiros doados pelo Fundo Mundial para o Meio Ambiente (<a href="http://www.thegef.org/gef/">Global Environmental Fund – GEF</a>) através do <a href="http://www1.caixa.gov.br/gov/gov_social/municipal/saneam_meio_ambiente/repasse/probio/index.asp">PROBIO II</a>.<br>
-Sua principal responsabilidade é fornecer, ao <a href="http://www.mma.gov.br/">Ministério do Meio Ambiente</a> e a outras instâncias do governo brasileiro, informação técnica e científica para nortear decisões políticas relacionadas à conservação da flora brasileira. Nosso principal desafio é alinhar demandas nacionais com as políticas globais de conservação, estabelecidas pela comunidade científica internacional.<br>
-A equipe de pesquisadores do CNCFlora trabalha em três frentes complementares: <a href="http://146.134.16.19/~cncflora/?q=lista_da_flora_do_brasil">Flora do Brasil</a>, <a href="http://146.134.16.19/~cncflora/?q=lista_vermelha">Conservação de Espécies Ameaçadas da Flora</a>, e <a href="http://146.134.16.19/~cncflora/?q=expedicoes-por-bioma">Inventário em Áreas Prioritárias</a>.
-</div>
+{% include "content/"+language+"/quem-somos.html" %}
 {% endblock %}
