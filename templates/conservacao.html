@@ -1,25 +1,23 @@
-{{> header}}
-
+{% extends "layout.html" %}
+{% block content %}
 <div class="sixteen columns intro">
-    <img src="/resources/img/conservacao2.jpg" alt="Ações de conservação - CNCFlora" />
+    <img src="/static/img/conservacao2.jpg" alt="Ações de conservação - CNCFlora" />
 </div>
 
 <div class="five columns menu">
     <ul>
-        <li><a href="/pt-br/conservacao/acoes" class='link-acoes'>A&ccedil;&otilde;es de conserva&ccedil;&atilde;o</a></li>
-        <li><a href="/pt-br/conservacao/redlist" class='link-redlist'>Lista vermelha</a></li>
-        <li><a href="/pt-br/conservacao/lista" class='link-lista'>Lista de esp&eacute;cies da flora do Brasil</a></li>
-        <li><a href="/pt-br/conservacao/ameacas" class='link-ameacas'>Fatores de amea&ccedil;as</a></li>
-        <li><a href="/pt-br/conservacao/areas" class='link-areas'>&Aacute;reas protegidas</a></li>
-        <li><a href="/pt-br/conservacao/biodiversidade" class='link-biodiversidade'>Biodiversidade</a></li>
-        <li><a href="/pt-br/conservacao/politicas" class='link-politicas'>Biodiversidade e politicas p&uacute;blicas</a></li>
+        <li><a href="/{{language}}/conservacao/acoes" class='link-acoes'>{{menu['acoes']}}</a></li>
+        <li><a href="/{{language}}/conservacao/redlist" class='link-redlist'>{{menu['redlist']}}</a></li>
+        <li><a href="/{{language}}/conservacao/lista" class='link-lista'>{{menu['lista']}}</a></li>
+        <li><a href="/{{language}}/conservacao/ameacas" class='link-ameacas'>{{menu['ameacas']}}</a></li>
+        <li><a href="/{{language}}/conservacao/areas" class='link-areas'>{{menu['areas']}}</a></li>
+        <li><a href="/{{language}}/conservacao/biodiversidade" class='link-biodiversidade'>{{menu['biodiversidade']}}</a></li>
+        <li><a href="/{{language}}/conservacao/politicas" class='link-politicas'>{{menu['politicas']}}</a></li>
     </ul>
 </div>
 
 <div class="ten columns content">
-    {{{content}}} 
+      {% include "content/"+language+"/conservacao/"+area+".html" %}
 </div>
 
-{{> footer}}
-
-
+{% endblock %}

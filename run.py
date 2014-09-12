@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from flask import Flask, render_template, request, flash
 import jinja2
 import json
@@ -41,7 +43,12 @@ def Equipe(language, members):
     data = response[language]
     menu = data['menu']
     submenu = data['menu-equipe']
-    return  render_template('equipe.html', menu=menu, language=language, submenu=submenu, members=members)
+    return  render_template(
+        'equipe.html',
+        menu=menu,
+        language=language,
+        submenu=submenu,
+        members=members)
 
 
 @app.route('/<language>/contato', methods=['GET', 'POST'])
@@ -58,7 +65,7 @@ def Contact(language):
 
           flash( 'email enviado!', 'success')
       else:
-          flash('info imcompleta!', 'error')
+          flash('informação imcompleta!', 'error')
 
 
     json_data = open('json/quemsomos.json').read()
@@ -68,23 +75,26 @@ def Contact(language):
     menu = data['menu']
     form_contato= data['form-contato']
 
-    return  render_template('contato.html', menu=menu, language=language, form_contato=form_contato)
+    return  render_template(
+          'contato.html',
+          menu=menu,
+          language=language,
+          form_contato=form_contato)
 
 
-# @app.route('/send',  methods=['POST'])
-# def send_email():
-#     if request.form['email'] != "" and request.form['message'] != "":
-#         msg = mailer.new()
-#         msg.author = request.form['email']
-#         msg.to = ['max@diogok.net']
-#         msg.subject = request.form['subject']
-#         msg.plain = request.form['message']
-#         msg.rich = '<p> <b>' + request.form['message'] + '</b></p>'
-#         mailer.send(msg)
-#
-#         flash_msg = "email enviado!"
-#     else:
-#         flash_msg = "info imcompleta!"
+@app.route('/<language>/conservacao/<area>', methods=['GET'])
+def Conservacao(language, area):
+    json_data = open('json/conservasao.json').read()
+    response = json.loads(json_data)
+    app.logger.debug(response)
+
+    data = response[language]
+    menu = data['menu']
+    return  render_template(
+            'conservacao.html',
+            menu=menu,
+            language=language,
+            area=area)
 
 
 
