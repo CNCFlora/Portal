@@ -96,6 +96,12 @@ def Conservacao(language, area):
             language=language,
             area=area)
 
+@app.route('/<language>/legislacao', methods=['GET'])
+def Legislacao(language):
+    return  render_template(
+            'legislacao.html',
+            language=language)
+
 
 
 

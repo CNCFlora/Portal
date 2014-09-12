@@ -1,17 +1,8 @@
-{{> header}}
-
+{% extends "layout.html" %}
+{% block content %}
 <div class="sixteen columns intro">
-    <img src="/resources/img/legal.jpg" alt="Legislação ligada a conservação da flora" />
+    <img src="/static/img/legal.jpg" alt="Legislação ligada a conservação da flora" />
 </div>
 
-<div class="five columns menu">
-    <p>{{{intro}}}</p>
-</div>
-
-<div class="ten columns content">
-    {{{content}}} 
-</div>
-
-{{> footer}}
-
-
+{% include "content/"+language+"/legislacao/content.html" %}
+{% endblock %}
