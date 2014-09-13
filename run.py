@@ -83,8 +83,8 @@ def Contact(language):
 
 
 @app.route('/<language>/conservacao/<area>', methods=['GET'])
-def Conservacao(language, area):
-    json_data = open('json/conservasao.json').read()
+def Conservation(language, area):
+    json_data = open('json/conservacao.json').read()
     response = json.loads(json_data)
     app.logger.debug(response)
 
@@ -97,10 +97,25 @@ def Conservacao(language, area):
             area=area)
 
 @app.route('/<language>/legislacao', methods=['GET'])
-def Legislacao(language):
+def Legislation(language):
     return  render_template(
             'legislacao.html',
             language=language)
+
+
+@app.route('/<language>/publicacoes/<type>', methods=['GET'])
+def Documentation(language, type):
+    json_data = open('json/documentacao.json').read()
+    response = json.loads(json_data)
+    app.logger.debug(response)
+
+    data = response[language]
+    menu = data['menu']
+    return  render_template(
+            'documentos.html',
+            menu=menu,
+            language=language,
+            type=type)
 
 
 

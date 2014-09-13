@@ -1,0 +1,13 @@
+{
+  "pt-br":{
+        "menu":{
+              "acoes":"planejamento de ações",
+              "redlist":"lista vermelha",
+              "lista":"lista de espécies da flora do brasil",
+              "ameacas":"fatores de ameaças",
+              "areas":"áreas protegidas",
+              "biodiversidade":"biodiversidade",
+              "politicas":"biodiversidade e politicas públicas"
+        }
+  }
+}

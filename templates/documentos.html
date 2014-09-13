@@ -1,26 +1,19 @@
-{{> header}}
-
+{% extends "layout.html" %}
+{% block content %}
 <div class="sixteen columns intro">
-    {{{intro}}}
+    {% include "content/"+language+"/documentacao/text.html" %}
 </div>
 
 <div class="five columns menu">
     <ul>
-        <li><a href="/pt-br/publicacoes/publicacao" class='publicacao'>Publica&ccedil;&otilde;es CNCFlora</a></li>
-        <li><a href="/pt-br/publicacoes/documentos" class='documentos'>Documentos Norteadores</a></li>
+        <li><a href="/{{language}}/publicacoes/publicacao" class='publicacao'>{{menu['publicacao']}}</a></li>
+        <li><a href="/{{language}}/publicacoes/documentos" class='documentos'>{{menu['documentos']}}</a></li>
+        <li><a href="/{{language}}/publicacoes/relatorios" class='relatorios'>{{menu['relatorios']}}</a></li>
     </ul>
 </div>
 
 <div class="ten columns content">
-    <ul id='docs'>
-        {{#docs}}
-        <li class='doc'>
-            <img src="{{thumb}}" alt="{{title}}" /><br />
-            <a href="{{url}}">{{title}}</a>
-        </li>
-        {{/docs}}
-    </ul>
+    {% include "content/"+language+"/documentacao/"+type+".html" %}
 </div>
 
-{{> footer}}
-
+{% endblock %}
