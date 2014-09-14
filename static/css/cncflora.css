@@ -82,8 +82,8 @@ nav>ul>li:last-child {
 nav>ul>li>a {
     display: block;
     width:auto;
-    padding-left: 19px;
-    padding-right: 19px;
+    padding-left: 28px;
+    padding-right: 28px;
     text-transform:lowercase;
     text-decoration:none;
     font-size: 16px;

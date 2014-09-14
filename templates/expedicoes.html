@@ -1,32 +1,30 @@
-{{> header}}
-
+{% extends "layout.html" %}
+{% block content %}
 <div class="sixteen columns intro">
-    <div id="map"></div>
+    <img src="/static/img/quemsomos.jpg" alt="Quem Somos - CNCFlora" />
 </div>
 
 <div class="five columns menu">
-    <ul>
-        {{#nodes}}
-        <li><a href="/pt-br/expedicoes/{{nid}}" class='expedicao {{marked}} {{biomas}}'>{{titulo}}</a></li>
-        {{/nodes}}
+    <ul class="expedicoes-menu">
+        <li><a href="/{{language}}/expedicoes/100" class="expedicao  cerrado mata-atlântica caatinga">{{menu['100']}}</a></li>
+        <li><a href="/{{language}}/expedicoes/102" class="expedicao  cerrado pantanal">{{menu['102']}}</a></li>
+        <li><a href="/{{language}}/expedicoes/130" class="expedicao  mata-atlântica">{{menu['130']}}</a></li>
+        <li><a href="/{{language}}/expedicoes/98" class="expedicao  cerrado mata-atlântica caatinga">{{menu['98']}}</a></li>
+        <li><a href="/{{language}}/expedicoes/101" class="expedicao  cerrado">{{menu['101']}}</a></li>
+        <li><a href="/{{language}}/expedicoes/103" class="expedicao  cerrado mata-atlântica">{{menu['103']}}</a></li>
+        <li><a href="/{{language}}/expedicoes/104" class="expedicao  amazônia">{{menu['104']}}</a></li>
+        <li><a href="/{{language}}/expedicoes/99" class="expedicao  cerrado">{{menu['99']}}</a></li>
     </ul>
 </div>
 
 <div class="ten columns content">
-    <div class="photos">
-    {{#photos}}
-    <a href="{{url}}" rel="prettyPhoto[pp_gal]"><img src="{{thumb}}" width='60' height='60' /></a>
-    {{/photos}}
-    </div>
-    {{{content}}} 
+    {% include "content/"+language+"/expedicoes/"+type+".html" %}
 </div>
-<link rel="stylesheet" href="/resources/css/prettyPhoto.css" />
-<script type="text/javascript">
-    head.js('/portal/resources/js/expedicoes.js')
-        .js('/portal/resources/js/jquery.prettyPhoto.js')
-        .js('/portal/resources/js/biomas_map.js')
-        .js('http://openlayers.org/api/OpenLayers.js')
-        .ready(function(){expedicoes(); biomas();});
-</script>
 
-{{> footer}}
+<script type="text/javascript">
+    head.js('/static/js/jquery.colorbox.js')
+        .ready(function(){
+          $(".group1").colorbox({rel:'group1', width:"60%", height:"80%"});
+          });
+</script>
+{% endblock %}

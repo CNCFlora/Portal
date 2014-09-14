@@ -118,6 +118,20 @@ def Documentation(language, type):
             type=type)
 
 
+@app.route('/<language>/expedicoes/<type>', methods=['GET'])
+def Expeditions(language, type):
+    json_data = open('json/expedicoes.json').read()
+    response = json.loads(json_data)
+    app.logger.debug(response)
+
+    data = response[language]
+    menu = data['menu']
+    return  render_template(
+            'expedicoes.html',
+            menu=menu,
+            language=language,
+            type=type)
+
 
 
 
