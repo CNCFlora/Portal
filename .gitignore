@@ -4,3 +4,4 @@ config.ini
 .DS_store
 .vagrant/
 env/
+app.log
