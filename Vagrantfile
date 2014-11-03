@@ -18,5 +18,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", inline: $script
 
   config.vm.network "private_network", ip: "192.168.50.20"
-  config.vm.network "forwarded_port", guest: 8888, host: 8888
+  config.vm.network "forwarded_port", guest: 8889, host: 8889
 end

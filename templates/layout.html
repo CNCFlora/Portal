@@ -1,84 +1,170 @@
 <!DOCTYPE HTML>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Centro Nacional de Conservação da Flora - CNCFlora</title>
-	<meta name="description" content="">
-	<meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  <link rel="stylesheet" href="/static/css/base.css">
-	  <link rel="stylesheet" href="/static/css/skeleton.css">
-	  <link rel="stylesheet" href="/static/css/layout.css">
-    <link rel="stylesheet" href="/static/css/cncflora.css" />
-		<link rel="stylesheet" href="/static/css/colorbox.css" />
-    <!--
-    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Questrial' />
-    -->
-	<link rel="shortcut icon" href="/static/img/favicon.ico">
-    <script src="/static/js/head.min.js" type="text/javascript"></script>
-    <script src="/static/js/cncflora.js" type="text/javascript"></script>
-	<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-</head>
-<body>
-    <div class="container">
-        <header class="sixteen columns">
-            <!-- logged -->
-                <p id='up'>
-                    <!--<a href="/login">login</a>-->
-                    <a href="http://cncflora.jbrj.gov.br/apps/profiles">ferramentas</a>
-                </p>
-            <!-- logged -->
-            <div id="greeting">
-                <h1>Bem-vindo ao Portal CNCFlora</h1>
-                <h2>Plataforma de acesso e gest&atilde;o de dados.</h2>
-            </div>
-            <a href='/'><h1>CNCFlora</h1></a>
-            <h2>JBRJ</h2>
-            <div id="floral"></div>
-        </header>
-        <nav class="sixteen columns">
-            <ul>
-                <li><a href="/pt-br/quem-somos" class='quem-somos-link'>Quem somos</a></li>
-                <li><a href="/pt-br/redlisting" class='red lista-vermelha-link'>Lista vermelha</a></li>
-                <li><a href="/pt-br/conservacao/acoes" class='conservacao-link'>Conserva&ccedil;&atilde;o da flora</a></li>
-                <li><a href="/pt-br/expedicoes/intro" class='expedicoes-link'>Expedi&ccedil;&otilde;es</a></li>
-                <li><a href="/pt-br/publicacoes/publicacao" class='publicacoes-link'>Documentos</a></li>
-                <li><a href="/pt-br/legislacao" class='legislacao-link'>Legisla&ccedil;&atilde;o</a></li>
-            </ul>
-        </nav>
-        <div id="content">
-					{% block content %}{% endblock %}
-				</div>
-				<footer>
-						<div class="eight columns logos">
-								<p>
-										<a alt="PROBIO" href="http://www.mma.gov.br/biodiversidade/projetos-sobre-a-biodiveridade/projeto-nacional-de-a%C3%A7%C3%B5es-integradas-p%C3%BAblico-privadas-para-biodiversidade-probio-ii" title="PROBIO"><img alt="PROBIO" id="probio" src="/static/img/PROBIO.jpg" title="PROBIO" /></a>
-										<a alt="Ministério do Meio Ambiente" href="http://www.mma.gov.br/" title="Ministerio do Meio Ambiente"><img alt="Ministério do Meio Ambiente" id="mma" src="/static/img/MMA.png" title="Ministerio do Meio Ambiente" /></a>
-										<a alt="International Union for Conservation of Nature" href="http://www.iucn.org/" title="International Union for Conservation of Nature"><img alt="International Union for Conservation of Nature" id="iucn" src="/static/img/IUCN.gif" title="International Union for Conservation of Nature" /></a>
-								</p>
-						</div>
-						<div class="seven offset-by-one columns info">
-								<p>
-										Instituto de Pesquisas Jardim Botânico do Rio de Janeiro<br />
-										Rua Pacheco Leão, 915 - Dipeq, sala 105<br />
-										Jardim Botânico - Rio de Janeiro - RJ<br />
-										CEP: 22.460-030<br />
-										Tel: (21)3204-2138<br />
-								</p>
-						</div>
-				</footer>
-		</div>
-		<script type="text/javascript">
-				var _gaq = _gaq || [];
-				_gaq.push(['_setAccount', 'UA-13203805-2']);
-				_gaq.push(['_trackPageview']);
-				(function() {
-						var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-						ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-				})();
+<html lang="pt">
+	<head>
+		<title>Centro Nacional de Conservação da Flora - CNCFlora</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="{{static_url}}/js/jquery.min.js"></script>
+		<script src="{{static_url}}/js/bootstrap.min.js"></script>
+		<script src="{{static_url}}/js/jquery.bxslider.min.js"></script>
+
+		<script>
+					$(document).ready(function(){
+						$('.slider1').bxSlider({
+							slideWidth: 200,
+							minSlides: 2,
+							maxSlides: 4,
+							slideMargin: 15,
+							auto: true,
+
+						});
+					});
 		</script>
+			<link rel="stylesheet" href="{{static_url}}/css/bootstrap.min.css" />
+		 	<link rel="stylesheet" href="{{static_url}}/css/jquery.bxslider.css" />
+			<link rel="stylesheet" href="{{static_url}}/css/site.css" />
+			<link rel="stylesheet" href="{{static_url}}/css/layout.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+<!--
+	<body>
+-->
+
+		<!-- Header -->
+			<div id="header">
+
+				<div id="menu">
+					<div class="container">
+						<ul>
+							<li class="current"><a href="index.html">Home</a></li>
+							<li><a href="">Lista Vermelha</a></li>
+							<li>
+								<a href="">Projetos</a>
+
+							</li>
+							<li><a href="">Documentos</a></li>
+						</ul>
+						<ul class="login">
+							<li><a href="">Login</a></li>
+							<li><a href="">pt</a></li>/
+							<li><a href="">en </a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="layer">
+				</div>
+				<div class="container">
+					<!-- <h3 class="1u"><a href="index.html" class="logo-jbrj" id="logo-jbrj"><img src="images/logo-jbrj.png"/></a></h3> -->
+					<h1 class="col-sm-12 col-md-12 col-lg-12"><a target="_blank" href="http://www.jbrj.gov.br/" class="logo-jbrj" id="logo-jbrj"><img src="{{static_url}}/images/logo-jbrj.png"/></a><a href="index.html" class="logo" id="logo"><img src="{{static_url}}/images/logo-cnc.png"/></a></h1>
+				</div>
+				<header>
+						<div class="container">
+
+						<form class="form-search">
+								<div class="col-md-6 col-lg-6 box">
+									<div class="input-group">
+										<input type="text" class="form-control">
+										<span class="input-group-btn">
+											<button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+										</span>
+									</div>
+									<a href="" class="busca-avançada">Busca Avançada</a>
+								</div>
+						</form>
+						</div>
+
+				</header>
+			</section>
+
+					{% block content %}{% endblock %}
+
+
+
+<footer id="footer">
+	<div class="container">
+			<div class="row ">
+				<section class="col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 30px;">
+				<div id="menu12">
+						<ul class="submenu">
+							<li><a href="#" class="icon ">Home</a></li>
+							<li><a href="#" class="icon ">Lista Vermelha</a></li>
+							<li><a href="#" class="icon ">Projetos</a></li>
+							<li><a href="#" class="icon ">Documentos</a></li>
+							<li><a href="#" class="icon ">Equipe</a></li>
+							<li><a href="#" class="icon ">Contato</a></li>
+					</ul>
+				</div>
+				</section>
+				<section class="col-sm-6 col-md-6 col-lg-6" style="display: none;">
+					<h3>Contato</h3>
+					<form>
+						<div class="row half collapse-at-2">
+							<div class="6u">
+								<input type="text" name="name" id="name" placeholder="Nome" />
+							</div>
+							<div class="6u">
+								<input type="email" name="email" id="email" placeholder="Email" />
+							</div>
+						</div>
+						<div class="row half">
+							<div class=" col-sm-12 col-md-12 col-lg-12">
+								<textarea name="message" id="message" placeholder="Mensagem" rows="5"></textarea>
+							</div>
+						</div>
+						<div class="row half">
+							<div class="col-sm-12 col-md-12 col-lg-12">
+								<ul class="actions">
+									<li><input type="submit" class="button alt" value="Enviar Mensagem" /></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</section>
+
+				<ul class="links parceiros col-sm-6 col-md-6 col-lg-6">
+					<li><a href="#"><img class="img-1" src="{{static_url}}/images/PROBIO.jpg" /></a></li>
+					<li><a href="#"><img class="img-2" src="{{static_url}}/images/MMA.png" /></a></li>
+					<li><a href="#"><img class="img-3" src="{{static_url}}/images/IUCN.gif" /></a></li>
+
+				</ul>
+
+				<div class="6u endereco">
+					<p>Instituto de Pesquisas Jardim Botânico do Rio de Janeiro<br/>
+						Rua Pacheco Leão, 915 - Dipeq<br/>
+						Jardim Botânico - Rio de Janeiro - RJ<br/>
+						CEP: 22.460-030<br/>
+						Tel: (21)3204-2072</p>
+				</div>
+				<!-- Icons -->
+
+					<ul class="icons social col-sm-12 col-md-12 col-lg-12">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+					</ul>
+			</div>
+		</div>
+</footer>
+<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-13203805-2']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+</script>
+
 </body>
 </html>

@@ -158,6 +158,9 @@
 			letter-spacing: -0.025em;
 		}
 
+	footer {
+		margin: 0 0 3em 0;
+	}
 
 		footer > :last-child {
 			margin-bottom: 0;
@@ -1406,7 +1409,6 @@
 		.box-charts .box{
 			display: inline-block;
 			width: 24% !important;
-			padding: 0px;
 
 		}
 		.box-charts .box h3{
