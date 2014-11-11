@@ -25,8 +25,10 @@ mailer = Mailer(app)
 
 
 app.add_url_rule('/', view_func=HomeHandler.as_view('home'))
-app.add_url_rule('/<language>/listavermelha/',
+app.add_url_rule('/<language>/listavermelha/',defaults={'family': None},
   view_func=RedlistHandler.as_view('redlist'))
+app.add_url_rule('/<language>/listavermelha/<family>',
+  view_func=RedlistHandler.as_view('redlistfamily'))
 
 if __name__ == "__main__":
     app.run(port=8889, host='0.0.0.0', debug=True)

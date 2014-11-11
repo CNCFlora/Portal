@@ -1,5 +1,36 @@
 {% extends "layout.html" %}
 {% block content %}
-
-
+<section class="wrapper style1 redlist-page">
+  <div class="container">
+    <div class="row">
+      <div class="sidebar col-sm-3 col-md-3 col-lg-3">
+        <h3>Listagem por família</h3>
+        <div class="sidebar-menu">
+          <ul>
+            {% for familly in families%}
+              <li><a href="{{base_url}}/{{language}}/listavermelha/{{familly}}">{{familly}}</a></li>
+            {% endfor %}
+          </ul>
+      </div>
+      </div>
+      <div class="description col-sm-9 col-md-9 col-lg-9">
+         {% if family_description %}
+            <div class="family">
+              <h3>{{family}}</h3>
+              {% for data_family in family_description %}
+              <p>
+                <a href="http://cncflora.jbrj.gov.br/plataforma2/book/pub.php?id={{data_family['taxon']['scientificName']}}" target="_blank">
+                  {{data_family['taxon']['scientificName']}}
+                </a>
+                  {{data_family['category']}}
+                </p>
+              {% endfor %}
+            </div>
+         {% else %}
+          {% include "content/"+language+"/listavermelha.html" %}
+         {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}

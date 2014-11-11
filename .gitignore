@@ -5,3 +5,7 @@ config.ini
 .vagrant/
 env/
 app.log
+*.pyc
+*.log
+*.sublime-workspace
+*.sublime-project
