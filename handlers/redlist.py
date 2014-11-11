@@ -16,14 +16,13 @@ class RedlistHandler(MethodView, BaseHandler):
         else:
             family = {}
         json_data = requests.get('http://cncflora.jbrj.gov.br/services/assessments/families')
-        print json_data
         families = json.loads(json_data.text)
         return render_template(
                 'redlist.html',
                 language=language,
                 base_url=self.base_url,
                 static_url=self.static_url,
-                families=families,
+                families=sorted(families),
                 family_description=family_description,
                 family=family
                 )
