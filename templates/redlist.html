@@ -19,7 +19,7 @@
               <h3>{{family}}</h3>
               {% for data_family in family_description %}
               <p>
-                <a href="http://cncflora.jbrj.gov.br/plataforma2/book/pub.php?id={{data_family['taxon']['scientificName']}}" target="_blank">
+              <a href="{{base_url}}/{{language}}/profile/{{data_family['taxon']['scientificName']}}" target="_blank">
                   {{data_family['taxon']['scientificName']}}
                 </a>
                   {{data_family['category']}}

@@ -10,6 +10,7 @@ from flask_marrowmailer import Mailer
 from handlers.home import HomeHandler
 from handlers.redlist import RedlistHandler
 from handlers.document import DocumentHandler
+from handlers.profile import ProfileHandler
 
 
 app = Flask(__name__)
@@ -32,6 +33,8 @@ app.add_url_rule('/<language>/listavermelha/<family>',
   view_func=RedlistHandler.as_view('redlistfamily'))
 app.add_url_rule('/<language>/publicacoes/',
   view_func=DocumentHandler.as_view('documents'))
+app.add_url_rule('/<language>/profile/<name>',
+  view_func=ProfileHandler.as_view('profile'))
 
 if __name__ == "__main__":
     app.run(port=8889, host='0.0.0.0', debug=True)
