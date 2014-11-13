@@ -642,9 +642,7 @@
 				border: 0;
 			}
 
-	  #header .logo{
 
-		}
 	  #header .logo img{
 				width: 200px;
 		}
@@ -655,6 +653,18 @@
 		}
 	  .logo-jbrj img{
 				width: 50px;
+		}
+
+	  .logo-content img{
+				width: 260px;
+		}
+	  .logo-jbrj-content{
+				width: 45px;
+				text-decoration: none;
+				border: 0px;
+		}
+	  .logo-jbrj-content img{
+				width: 45px;
 		}
 
 	#login ul{
@@ -1037,6 +1047,7 @@
 		position: absolute;
 		left: 0;
 		right: 0;
+		margin-top: 10px;
 	}
 	#banner h1 .logo-jbrj
 	{
@@ -1655,4 +1666,50 @@
 
 .bx-wrapper .bx-pager{
 	top: 200px;
+}
+
+.search-content{
+	padding:50px 10px 0px 30px;
+}
+#banner.banner-content{
+	height: 130px!important;
+}
+#banner.banner-content h1{
+	text-algn: left;
+	left: 0;
+	right: 0;
+	margin-top: 30px;
+	margin-left: -60px;
+}
+
+.gsc-input-box {
+	border: 1px solid #D9D9D9;
+	background: #fff;
+	height: 30px!important;
+	border-bottom-left-radius: 10px;
+	border-top-left-radius: 10px;
+}
+input.gsc-search-button {
+	height: 30px!important;
+	margin-left: 0px!important;
+	margin-top: 0px!important;
+	border-bottom-right-radius: 10px!important;
+	border-top-right-radius: 10px!important;
+}
+
+.form-search>div {
+	margin: 0 auto;
+}
+.gsc-input {
+	padding-right: 0 !important;
+}
+#gsc-i-id1 {
+	background: none !important;
+	color: #000;
+}
+td.gsib_b {
+	display:none;
+}
+td.gsc-search-button {
+	line-height:10px !important;
 }

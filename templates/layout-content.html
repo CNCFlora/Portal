@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html lang="pt">
+  <head>
+    <title>Centro Nacional de Conservação da Flora - CNCFlora</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+    <script src="{{static_url}}/js/jquery.min.js"></script>
+    <script src="{{static_url}}/js/bootstrap.min.js"></script>
+    <script src="{{static_url}}/js/jquery.bxslider.min.js"></script>
+    <script src="https://connect.facebook.net/en_US/sdk.js" type="text/javascript"></script>
+
+    <script>
+          var app_token="1577971729098288|xiuRBjnx3lAelrW1wRzHmDAdb4g";
+
+          $(document).ready(function(){
+            $('.slider1').bxSlider({
+              slideWidth: 200,
+              minSlides: 2,
+              maxSlides: 4,
+              slideMargin: 15,
+              speed: 1000,
+              auto: true,
+              controls: false
+
+            });
+            $('.slide-equipe').bxSlider({
+              slideWidth: 800,
+              minSlides: 1,
+              maxSlides: 1,
+              slideMargin: 15,
+              speed: 1000,
+              auto: true,
+              controls: true
+
+            });
+
+            FB.init({
+              appId      : '1577971729098288',
+              xfbml      : true,
+              version    : 'v2.2'
+            });
+            $('input.gsc-search-button').html('<i class="glyphicon glyphicon-search"></i>');
+
+          });
+
+          function render(sel) {
+            var tmpl = document.querySelector(sel);
+            var frag = tmpl.content;
+            var el = frag.cloneNode(true);
+
+            el.to= function(sel) { document.querySelector(sel).innerHTML = el; }
+            el.into= function(sel) { document.querySelector(sel).appendChild(el); }
+
+            return el;
+          }
+
+    </script>
+      <link rel="stylesheet" href="{{static_url}}/css/bootstrap.min.css" />
+       <link rel="stylesheet" href="{{static_url}}/css/jquery.bxslider.css" />
+      <link rel="stylesheet" href="{{static_url}}/css/site.css" />
+      <link rel="stylesheet" href="{{static_url}}/css/layout.css" />
+      <link rel="stylesheet" href="{{static_url}}/css/style.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+  </head>
+
+  <body>
+
+
+    <!-- Header -->
+      <div id="header">
+
+        <div id="menu">
+          <div class="container">
+            <ul>
+              <li ><a href="{{base_url}}/" class="current">Home</a></li>
+              <li><a href="{{base_url}}/pt-br/listavermelha">Lista Vermelha</a></li>
+              <li>
+                <a href="#" class="projects">Projetos</a>
+                <ul class="list-projects">
+                  <li><a href="{{base_url}}/pt-br/projeto/lista-vermelha">Lista Vermelha</a></li>
+                  <li><a href="{{base_url}}/pt-br/projeto/plano-de-acao">Plano de ação</a></li>
+                  <li><a href="{{base_url}}/pt-br/projeto/ex-situ">Ex-situ</a></li>
+                  <li><a href="{{base_url}}/pt-br/projeto/sistemas">Sistemas</a></li>
+                </ul>
+
+              </li>
+              <li><a href="{{base_url}}/pt-br/publicacoes">Documentos</a></li>
+            </ul>
+            <ul class="login">
+              <li><a href="">Login</a></li>
+              <li><a href="">pt</a></li>/
+              <li><a href="">en </a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    <!-- Banner -->
+      <section id="banner" class="banner-content" >
+        <div class="layer">
+        </div>
+        <div class="container">
+          <!-- <h3 class="1u"><a href="index.html" class="logo-jbrj" id="logo-jbrj"><img src="images/logo-jbrj.png"/></a></h3> -->
+          <h1 class="col-sm-6 col-md-6 col-lg-6"><a target="_blank" href="http://www.jbrj.gov.br/" class="logo-jbrj-content" id="logo-jbrj"><img src="{{static_url}}/images/logo-jbrj.png"/></a><a href="{{base_url}}/" class="logo-content" id="logo"><img src="{{static_url}}/images/logo-cnc.png"/></a></h1>
+
+            <div class="search-content col-md-6 col-lg6-box">
+              <script>
+                (function() {
+                 var cx = '003185954220236516085:dg88rmqobdq';
+                 var gcse = document.createElement('script');
+                 gcse.type = 'text/javascript';
+                 gcse.async = true;
+                 gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                   '//www.google.com/cse/cse.js?cx=' + cx;
+                 var s = document.getElementsByTagName('script')[0];
+                 s.parentNode.insertBefore(gcse, s);
+               })();
+              </script>
+              <gcse:searchbox-only></gcse:searchbox-only>
+            </div>
+
+        </div>
+      </section>
+
+          {% block content %}{% endblock %}
+
+
+
+<footer id="footer">
+  <div class="container">
+      <div class="row ">
+        <section class="col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 30px;">
+        <div id="menu12">
+            <ul class="submenu">
+              <li><a href="#" class="icon ">Home</a></li>
+              <li><a href="#" class="icon ">Lista Vermelha</a></li>
+              <li><a href="#" class="icon ">Projetos</a></li>
+              <li><a href="#" class="icon ">Documentos</a></li>
+              <li><a href="#" class="icon ">Equipe</a></li>
+              <li><a href="#" class="icon ">Contato</a></li>
+          </ul>
+        </div>
+        </section>
+        <section class="col-sm-6 col-md-6 col-lg-6" style="display: none;">
+          <h3>Contato</h3>
+          <form>
+            <div class="row half collapse-at-2">
+              <div class="6u">
+                <input type="text" name="name" id="name" placeholder="Nome" />
+              </div>
+              <div class="6u">
+                <input type="email" name="email" id="email" placeholder="Email" />
+              </div>
+            </div>
+            <div class="row half">
+              <div class=" col-sm-12 col-md-12 col-lg-12">
+                <textarea name="message" id="message" placeholder="Mensagem" rows="5"></textarea>
+              </div>
+            </div>
+            <div class="row half">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <ul class="actions">
+                  <li><input type="submit" class="button alt" value="Enviar Mensagem" /></li>
+                </ul>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <ul class="links parceiros col-sm-6 col-md-6 col-lg-6">
+          <li><a href="#"><img class="img-1" src="{{static_url}}/images/PROBIO.jpg" /></a></li>
+          <li><a href="#"><img class="img-2" src="{{static_url}}/images/MMA.png" /></a></li>
+          <li><a href="#"><img class="img-3" src="{{static_url}}/images/IUCN.gif" /></a></li>
+
+        </ul>
+
+        <div class="6u endereco">
+          <p>Instituto de Pesquisas Jardim Botânico do Rio de Janeiro<br/>
+            Rua Pacheco Leão, 915 - Dipeq<br/>
+            Jardim Botânico - Rio de Janeiro - RJ<br/>
+            CEP: 22.460-030<br/>
+            Tel: (21)3204-2072</p>
+        </div>
+        <!-- Icons -->
+
+
+          <ul class="icons social col-sm-12 col-md-12 col-lg-12">
+            <li><div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div></li>
+          </ul>
+      </div>
+    </div>
+</footer>
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-13203805-2']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+</body>
+</html>
