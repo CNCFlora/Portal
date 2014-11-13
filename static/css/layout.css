@@ -1219,12 +1219,11 @@
 
 		.bx-wrapper img{
 			  width:200px;
-			  height:200px;
 				border: 2px solid #333;
 		}
-		.bx-controls{
+		/*.bx-controls{
 				display:none;
-		}
+		}*/
 		.bx-wrapper{
 				margin:	0 auto;
 		}
@@ -1507,6 +1506,14 @@
 			display: block;
 			z-index:0;
 		}
+
+		.box-charts  .box strong{
+			margin: 55px 0 0 0px;
+			display: block;
+			position: absolute;
+			width:150px;
+			text-align: center;
+		}
 /*
 		.box-charts .box-chart.chart-one .layer{
 			background-color: rgba(255, 255, 255, 0.5);
@@ -1547,13 +1554,7 @@
 			top:90%;
 		}*/
 
-		.box-charts .box strong{
-			margin: 60px 0 0 0px;
-			display: block;
-			position: absolute;
-			width:150px;
-			text-align: center;
-		}
+
 
 		.chart-time-line{
 			margin-left: 210px;
@@ -1584,6 +1585,7 @@
 		position: relative;
 		margin-right: 20px;
 		margin-bottom: 20px;
+		margin-left: 15px;
 }
 .doc .img img {
 		display: block; /* Otherwise it keeps some space around baseline */
@@ -1644,4 +1646,13 @@
 .doc .img:hover .portfolio-overlay {
 	opacity: 0.9;
 	visibility: visible;
+}
+
+.view-page h3{
+	text-align: center;
+	color: #20AE54;
+}
+
+.bx-wrapper .bx-pager{
+	top: 200px;
 }
