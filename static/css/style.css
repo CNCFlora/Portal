@@ -34,3 +34,15 @@
 		text-decoration: underline;
 		line-height: 1.8;
 }
+
+
+
+/*******
+	documents page
+*******/
+.document-page h3{
+		text-align: center;
+}
+.document-page .doc{
+	padding-left: 50px;
+}
