@@ -171,41 +171,49 @@
 </section>
 
 
-<section class="wrapper style1 news">
-    <div class="container">
-      <h3 class="col-sm-12 col-md-12 col-lg-12 title">Notícias</h3>
-
-      <div class="row">
-        <section class="col-sm-4 col-md-4 col-lg-4">
-        <div class="box post">
-          <a href="#" class="image "><img src="{{static_url}}/images/img10.jpg" alt="" /></a>
-          <div class="inner">
-            <h3>The First Thing</h3>
-            <p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
-          </div>
-        </div>
-      </section>
-      <section class="col-sm-4 col-md-4 col-lg-4">
-        <div class="box post">
-          <a href="#" class="image"><img src="{{static_url}}/images/img8.jpg" alt="" /></a><br/>
-          <div class="inner">
-            <h3>The Second Thing</h3>
-            <p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
-          </div>
-        </div>
-      </section>
-      <section class="col-sm-4 col-md-4 col-lg-4">
-        <div class="box post">
-          <a href="#" class="image"><img src="{{static_url}}/images/img9.jpg" alt="" /></a><br/>
-          <div class="inner">
-            <h3>The Second Thing</h3>
-            <p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
-          </div>
-        </div>
-      </section>
+<section class="wrapper style1 news" id='fb_news'>
+  <div class="container">
+    <h3 class="col-sm-12 col-md-12 col-lg-12 title">Notícias</h3>
+    <div class="row" id='fb_news_row'>
+      <h3>Carregando...</h3>
     </div>
-
+  </div>
+  <template id="noticia_tmpl">
+  <section class="col-sm-4 col-md-4 col-lg-4">
+    <div class="box post">
+      <a href="#" class="image "><img src="" alt="" /></a>
+      <div class="inner">
+        <h3></h3>
+        <p></p>
+      </div>
     </div>
+  </section>
+  </template>
 </section>
+
+<script type="text/javascript">
+  $(function(){
+      FB.api("/cncflora/posts?access_token="+app_token,function(response) {
+        document.querySelector("#fb_news_row").innerHTML="";
+        var count=0;
+        for(var i=0;i<response.data.length && count < 3;i++) {
+          var post = response.data[i];
+          if(typeof post == 'object' && post.type=='photo' && typeof post.message == 'string' && post.message.length >= 5) {
+            var section = render('#noticia_tmpl');
+            section.querySelector("img").src = post.picture;
+            section.querySelector("h3").textContent = "";
+            section.querySelector("a").href = post.link;
+            section.querySelector("p").textContent = post.message.slice(0,150)+"...";
+            section.querySelector("section").setAttribute("id","fb_"+post.object_id);
+            section.into('#fb_news_row');
+            FB.api("/"+post.object_id+"?access_token="+app_token,function(response){
+              document.querySelector("#fb_"+response.id+" img").src = response.source;
+            });
+            count++;
+          }
+        }
+      });
+  });
+</script>
 
 {% endblock %}
