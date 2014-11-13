@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="wrapper style1 document-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <br/>
+        <h3>Publicações CNCFlora</h3>
+        <div class="sidebar-menu">
+            {% include "content/"+language+"/document/publicacoes.html" %}
+        </div>
+      </div>
+      <div class=" col-sm-12 col-md-12 col-lg-12">
+        <h3>Documentos Norteadores</h3>
+        <div class="sidebar-menu">
+            {% include "content/"+language+"/document/documentos-norteadores.html" %}
+        </div>
+      </div>
+      <div class=" col-sm-12 col-md-12 col-lg-12">
+        <br/>
+        <h3>Relatórios</h3>
+        <div class="sidebar-menu">
+          {% include "content/"+language+"/document/relatorios.html" %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
