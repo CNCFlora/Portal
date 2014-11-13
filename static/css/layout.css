@@ -696,7 +696,7 @@
 			position: relative;
 			top: 0px;
 			margin-botton: 20px;
-			height: 34px;
+			height: 40px;
 
 		}
 
@@ -772,6 +772,33 @@
 				#header #menu  ul  li  ul {
 					display: none;
 				}
+				#header #menu  ul  li:hover .list-projects{
+					display: inline-block;
+
+				}
+
+				#header #menu  ul  li .list-projects{
+					width: 200px;
+					background: #333;
+					opacity:1;
+					margin-top: -5px !important;
+					position: absolute;
+					z-index: 15;
+					padding-left: 10px;
+				}
+				#header #menu  ul  li .list-projects li{
+					display: block;
+					margin-left: 5px;
+				}
+				#header #menu  ul  li .list-projects li a{
+					color: #fff;
+				}
+
+				#header #menu  ul  li .list-projects li a:hover{
+					color: #20AE54;
+				}
+
+
 
 		#nav:after {
 			content: '';
