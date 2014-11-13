@@ -1,0 +1,8 @@
+{% extends "layout-content.html" %}
+{% block content %}
+<section class="wrapper style1 project-page view-page">
+  <div class="container">
+    {% include "content/"+language+"/project/"+project+".html" %}
+  </div>
+</section>
+{% endblock %}

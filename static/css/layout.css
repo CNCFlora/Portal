@@ -642,9 +642,7 @@
 				border: 0;
 			}
 
-	  #header .logo{
 
-		}
 	  #header .logo img{
 				width: 200px;
 		}
@@ -655,6 +653,18 @@
 		}
 	  .logo-jbrj img{
 				width: 50px;
+		}
+
+	  .logo-content img{
+				width: 260px;
+		}
+	  .logo-jbrj-content{
+				width: 45px;
+				text-decoration: none;
+				border: 0px;
+		}
+	  .logo-jbrj-content img{
+				width: 45px;
 		}
 
 	#login ul{
@@ -696,7 +706,7 @@
 			position: relative;
 			top: 0px;
 			margin-botton: 20px;
-			height: 34px;
+			height: 40px;
 
 		}
 
@@ -772,6 +782,33 @@
 				#header #menu  ul  li  ul {
 					display: none;
 				}
+				#header #menu  ul  li:hover .list-projects{
+					display: inline-block;
+
+				}
+
+				#header #menu  ul  li .list-projects{
+					width: 200px;
+					background: #333;
+					opacity:1;
+					margin-top: -5px !important;
+					position: absolute;
+					z-index: 15;
+					padding-left: 10px;
+				}
+				#header #menu  ul  li .list-projects li{
+					display: block;
+					margin-left: 5px;
+				}
+				#header #menu  ul  li .list-projects li a{
+					color: #fff;
+				}
+
+				#header #menu  ul  li .list-projects li a:hover{
+					color: #20AE54;
+				}
+
+
 
 		#nav:after {
 			content: '';
@@ -1010,6 +1047,7 @@
 		position: absolute;
 		left: 0;
 		right: 0;
+		margin-top: 10px;
 	}
 	#banner h1 .logo-jbrj
 	{
@@ -1192,12 +1230,11 @@
 
 		.bx-wrapper img{
 			  width:200px;
-			  height:200px;
 				border: 2px solid #333;
 		}
-		.bx-controls{
+		/*.bx-controls{
 				display:none;
-		}
+		}*/
 		.bx-wrapper{
 				margin:	0 auto;
 		}
@@ -1480,6 +1517,14 @@
 			display: block;
 			z-index:0;
 		}
+
+		.box-charts  .box strong{
+			margin: 55px 0 0 0px;
+			display: block;
+			position: absolute;
+			width:150px;
+			text-align: center;
+		}
 /*
 		.box-charts .box-chart.chart-one .layer{
 			background-color: rgba(255, 255, 255, 0.5);
@@ -1520,13 +1565,7 @@
 			top:90%;
 		}*/
 
-		.box-charts .box strong{
-			margin: 60px 0 0 0px;
-			display: block;
-			position: absolute;
-			width:150px;
-			text-align: center;
-		}
+
 
 		.chart-time-line{
 			margin-left: 210px;
@@ -1557,6 +1596,7 @@
 		position: relative;
 		margin-right: 20px;
 		margin-bottom: 20px;
+		margin-left: 15px;
 }
 .doc .img img {
 		display: block; /* Otherwise it keeps some space around baseline */
@@ -1617,4 +1657,59 @@
 .doc .img:hover .portfolio-overlay {
 	opacity: 0.9;
 	visibility: visible;
+}
+
+.view-page h3{
+	text-align: center;
+	color: #20AE54;
+}
+
+.bx-wrapper .bx-pager{
+	top: 200px;
+}
+
+.search-content{
+	padding:50px 10px 0px 30px;
+}
+#banner.banner-content{
+	height: 130px!important;
+}
+#banner.banner-content h1{
+	text-algn: left;
+	left: 0;
+	right: 0;
+	margin-top: 30px;
+	margin-left: -60px;
+}
+
+.gsc-input-box {
+	border: 1px solid #D9D9D9;
+	background: #fff;
+	height: 30px!important;
+	border-bottom-left-radius: 10px;
+	border-top-left-radius: 10px;
+}
+input.gsc-search-button {
+	height: 30px!important;
+	margin-left: 0px!important;
+	margin-top: 0px!important;
+	border-bottom-right-radius: 10px!important;
+	border-top-right-radius: 10px!important;
+}
+
+.form-search>div {
+	margin: 0 auto;
+}
+.gsc-input {
+	padding-right: 0 !important;
+}
+#gsc-i-id1 {
+	background: none !important;
+	color: #000;
+}
+td.gsib_b {
+	display:none;
+}
+td.gsc-search-button {
+	line-height:10px !important;
 }
