@@ -5,68 +5,17 @@
 <section class="wrapper style1 about">
   <div class="container">
     <div class="slider1" class="col-sm-12 col-md-12 col-lg-12">
-      <div class="slide"><a href=""><img src="{{static_url}}/images/img1.jpg"/>
-      <div class="portfolio-overlay">
-          <h3>Floating</h3>
-          <p>Asperiores commodi illo fuga perferendis dolore repellendus sapiente ipsum.</p>
-          <a href="{{static_url}}/images/gallery/p2.jpg" data-rel="lightbox" class="expand">
-              <i class="fa fa-search"></i>
-          </a>
+      {% for img in images %}
+      <div class="slide">
+        <a href="{{img['link']}}">
+          <img src="{{img['img']}}"/>
+          <div class="portfolio-overlay">
+            <h3>{{img['name']}}</h3>
+            <p></p>
+          </div>
+        </a>
       </div>
-      </a>
-      </div>
-      <div class="slide"><a href=""><img src="{{static_url}}/images/img2.jpg"/>
-      <div class="portfolio-overlay">
-          <h3>Floating</h3>
-          <p>Asperiores commodi illo fuga perferendis dolore repellendus sapiente ipsum.</p>
-          <a href="{{static_url}}/images/gallery/p2.jpg" data-rel="lightbox" class="expand">
-              <i class="fa fa-search"></i>
-          </a>
-      </div>
-      </a>
-      </div>
-      <div class="slide"><a href=""><img src="{{static_url}}/images/img3.jpg"/>
-      <div class="portfolio-overlay">
-          <h3>Floating</h3>
-          <p>Asperiores commodi illo fuga perferendis dolore repellendus sapiente ipsum.</p>
-          <a href="{{static_url}}/images/gallery/p2.jpg" data-rel="lightbox" class="expand">
-              <i class="fa fa-search"></i>
-          </a>
-      </div>
-      </a>
-      </div>
-      <div class="slide"><a href=""><img src="{{static_url}}/images/img4.jpg"/>
-      <div class="portfolio-overlay">
-          <h3>Floating</h3>
-          <p>Asperiores commodi illo fuga perferendis dolore repellendus sapiente ipsum.</p>
-          <a href="{{static_url}}/images/gallery/p2.jpg" data-rel="lightbox" class="expand">
-              <i class="fa fa-search"></i>
-          </a>
-      </div>
-      </a>
-      </div>
-      <div class="slide"><a href=""><img src="{{static_url}}/images/img5.jpg"/>
-      <div class="portfolio-overlay">
-          <h3>Floating</h3>
-          <p>Asperiores commodi illo fuga perferendis dolore repellendus sapiente ipsum.</p>
-          <a href="{{static_url}}/images/gallery/p2.jpg" data-rel="lightbox" class="expand">
-              <i class="fa fa-search"></i>
-          </a>
-      </div>
-      </a>
-      </div>
-      <div class="slide"><a href=""><img src="{{static_url}}/images/img2.jpg"/>
-      <div class="portfolio-overlay">
-          <h3>Floating</h3>
-          <p>Asperiores commodi illo fuga perferendis dolore repellendus sapiente ipsum.</p>
-          <a href="{{static_url}}/images/gallery/p2.jpg" data-rel="lightbox" class="expand">
-              <i class="fa fa-search"></i>
-          </a>
-      </div>
-      </a>
-      </div>
-
-
+      {% endfor %}
      </div>
      <div class=" double">
       <section class="col-sm-12 col-md-12 col-lg-12">
