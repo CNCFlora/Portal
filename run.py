@@ -33,13 +33,10 @@ app.add_url_rule('/<language>/listavermelha/<family>',
   view_func=RedlistHandler.as_view('redlistfamily'))
 app.add_url_rule('/<language>/publicacoes/',
   view_func=DocumentHandler.as_view('documents'))
-<<<<<<< HEAD
 app.add_url_rule('/<language>/profile/<name>',
   view_func=ProfileHandler.as_view('profile'))
-=======
 app.add_url_rule('/<language>/projeto/<project>',
   view_func=ProjectHandler.as_view('project'))
->>>>>>> 3decf53afabffa73108884c7958fa45b561d85fa
 
 if __name__ == "__main__":
     app.run(port=8889, host='0.0.0.0', debug=True)
