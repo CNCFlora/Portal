@@ -16,7 +16,6 @@ class HomeHandler(MethodView, BaseHandler):
               img = {}
               cat = image["value"]["folder"]
               img["name"] = cat[cat.rfind(':',0,cat.rfind(':')) + 1:].replace(":"," ")
-              img["link"] = 'http://cncflora.jbrj.gov.br/plataforma2/book/pub.php?id='+img["name"]
               img["img"]  = 'http://cncflora.jbrj.gov.br/datahub/cncflora/'+urllib.quote( image["id"].encode('utf8') )+'/'+urllib.quote( image["value"]["metadata"]["title"].encode('utf8') ) 
               images.append(img)
           return  render_template('home.html',

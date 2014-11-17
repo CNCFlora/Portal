@@ -7,7 +7,7 @@
     <div class="slider1" class="col-sm-12 col-md-12 col-lg-12">
       {% for img in images %}
       <div class="slide">
-        <a href="{{img['link']}}">
+        <a href="{{base_url}}/pt-br/profile/{{img['name']}}">
           <img src="{{img['img']}}"/>
           <div class="portfolio-overlay">
             <h3>{{img['name']}}</h3>
