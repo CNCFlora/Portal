@@ -1597,6 +1597,7 @@
 		margin-right: 20px;
 		margin-bottom: 20px;
 		margin-left: 15px;
+		border: 1px solid #333;
 }
 .doc .img img {
 		display: block; /* Otherwise it keeps some space around baseline */
@@ -1712,4 +1713,12 @@ td.gsib_b {
 }
 td.gsc-search-button {
 	line-height:10px !important;
+}
+input.gsc-search-button-v2{
+	width: 70px!important;
+	padding: 6px 26px!important;
+}
+
+input.gsc-search-button, input.gsc-search-button:hover, input.gsc-search-button:focus{
+	background-color: #333!important;
 }
