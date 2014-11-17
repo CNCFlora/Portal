@@ -12,7 +12,7 @@ from base import BaseHandler
 class ProfileHandler(MethodView, BaseHandler):
 
     def get(self, language, name):
-        server = '192.168.50.15:9292'
+        server = '146.134.16.26/services'
         url = 'http://'+server+'/assessments/taxon/'+urllib.quote(  name[:1].upper()+name[1:] )
         json_data = requests.get(url)
         assessment = json.loads(json_data.text)
