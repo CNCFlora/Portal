@@ -8,3 +8,7 @@ class BaseHandler():
 
     base_url= os.environ.get('BASE','')
     static_url= base_url+'/static'
+
+    services= os.environ.get('SERVICES_PORT_8080_TCP','tcp://cncflora.jbrj.gov.br/services')[6:]
+    print services
+
