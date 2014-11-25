@@ -30,9 +30,65 @@
 .family p{
 		margin: 0px;
 		padding: 0px;
-		font-size: 15px;
-		text-decoration: underline;
+		font-size: 16px !important;
+		font-weight: bold;
 		line-height: 1.8;
+		padding: 6px;
+		border-bottom: 1px solid #e6e6e6;
+}
+.category{
+	color: #fff;
+	min-width: 30px;
+	min-height: 30px;
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-top: 2px;
+	text-decoration: none;
+	border-radius: 30px;
+	margin-left: 40px;
+	border: 1px solid #000;
+	display: inline-block;
+	font-size: 13px;
+	float: right;
+	margin-right: 10px;
+}
+.category.EN{
+	 background-color:#ff5d12;
+
+}
+.category.LC{
+	 background-color:#37997c;
+
+}
+.category.VU{
+	 background-color:#ffc905;
+
+}
+.category.CR{
+	 background-color:#ff0307;
+
+}
+.category.NT{
+	 background-color:#38fa02;
+
+}
+.category.DD{
+	 background-color:#c4cfcf;
+
+}
+.category.EW{
+	 background-color:#060808;
+
+}
+.category.EX{
+	 background-color:#000000;
+	 color: #fc0000;
+
+}
+.category.EX{
+	 background-color:#fcfcfc;
+	 color: #000000;
+
 }
 
 
@@ -163,7 +219,6 @@
 		margin-right: 20px;
 		margin-bottom: 20px;
 		border: 1px solid #333;
-		float: left;
 		padding: 0px;
 }
 .project-page .box-project .project-img img{
@@ -236,4 +291,22 @@
 	text-align: center;
   font-style: italic;
 
+}
+.box-fb-img{
+	display: block;
+	overflow: hidden;
+	width: 300px;
+	height: 150px;
+	list-style: none;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	padding: 0px;
+	border-radius:5px;
+}
+.box-fb-img img{
+	display: block; /* Otherwise it keeps some space around baseline */
+	width: 300px;
+	min-width: 100%;    /* Scale up to fill container width */
+	min-height: 100%;   /* Scale up to fill container height */
+	-ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */
 }

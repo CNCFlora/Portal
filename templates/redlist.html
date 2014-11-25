@@ -22,7 +22,7 @@
               <a href="{{base_url}}/{{language}}/profile/{{data_family['taxon']['scientificName']}}" target="_blank">
                   {{data_family['taxon']['scientificName']}}
                 </a>
-                  {{data_family['category']}}
+                  <span class="category {{data_family['category']}}">{{data_family['category']}}</span>
                 </p>
               {% endfor %}
             </div>
