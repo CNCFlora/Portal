@@ -21,10 +21,12 @@ class ProfileHandler(MethodView, BaseHandler):
         url = 'http://'+server+'/profiles/taxon/'+urllib.quote(  name[:1].upper()+name[1:] )
         json_data = requests.get(url)
         profile = json.loads(json_data.text)
+
         return render_template(
                 'profile.html',
                 language=language,
                 base_url=self.base_url,
                 static_url=self.static_url,
                 profile=profile,
+                references=assessment[ "references" ],
                 assessment=assessment)
