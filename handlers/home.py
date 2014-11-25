@@ -17,6 +17,12 @@ class HomeHandler(MethodView, BaseHandler):
               cat = image["value"]["folder"]
               img["name"] = cat[cat.rfind(':',0,cat.rfind(':')) + 1:].replace(":"," ")
               img["img"]  = 'http://cncflora.jbrj.gov.br/datahub/cncflora/'+urllib.quote( image["id"].encode('utf8') )+'/'+urllib.quote( image["value"]["metadata"]["title"].encode('utf8') )
+
+              #url = 'http://'+self.services+'/assessments/taxon/'+urllib.quote(img["name"])
+              #r = requests.get(url)
+              #j = json.loads(r.text);
+              #img["category"] = j["category"]
+
               images.append(img)
           return  render_template('home.html',
           images=images,
