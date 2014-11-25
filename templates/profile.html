@@ -18,7 +18,7 @@
   <section class='especie'>
     <div class="sixteen columns">
         <h3 class='specie'>
-          <i>{{assessment["taxon"]["scientificName"]}}</i> {{assessment["taxon"]["scientificNameAuthorship"]}}
+          <i>{{assessment["taxon"]["scientificNameWithoutAuthorship"]}}</i> {{assessment["taxon"]["scientificNameAuthorship"]}}
           <img src="{{static_url}}/images/{{assessment["category"]}}.jpg" alt="{{assessment["category"]}}" class="iucn" />
         </h3>
     </div>
@@ -34,54 +34,51 @@
         <p class='especialistas'><strong>Analistas SIG</strong>: ".implode($spp->AnalistasSIG,", ").".</p>";
         <?php include 'ficha.php' ?>
         -->
-        {% if "taxonomicNotes" in profile %}
+        {% if profile["taxonomicNotes"] %}
         <h4>Notas Taxon&ocirc;micas</h4>
         <p>{{profile["taxonomicNotes"]["notes"]}}</p>
         {% endif %}
         <!--
         <h4>Sin&ocirc;nimos</h4>
         <ul>
-        {% for syn in synonyms %}
-        <li>{{syn["scientificName"]}}</li>
-        {% endfor %}
         </ul>
         -->
     </div>
 
     <div class="seven columns map">
       <h4>Mapa de distribui&ccedil;&atilde;o</h4>
-      <img src="http://cncflora.jbrj.gov.br/mapas/{{assessment["taxon"]["scientificName"]}}" />
+      <img src="http://cncflora.jbrj.gov.br/mapas/{{assessment["taxon"]["scientificNameWithoutAuthorship"]}}" />
     </div>
 
     <div class="sixteen columns">
-      {% if "economicValue" in profile %}
+      {% if profile["economicValue"] %}
       <h4>Pot&ecirc;ncial valor econ&ocirc;mico</h4>
       <p>{{profile["economicValue"]["details"]}}</p>
       {% endif %}
 
-      {% if "population" in profile %}
+      {% if profile["population"] %}
       <h4>Dados populacionais</h4>
       <p>{{profile["population"]["resume"]}}</p>
       {% endif %}
 
-      {% if "distribution" in profile %}
+      {% if profile["distribution"] %}
       <h4>Distribuição</h4>
       <p>{{profile["distribution"]["resume"]}}</p>
       {% endif %}
 
-      {% if "ecology" in profile %}
+      {% if profile["ecology"] %}
       <h4>Ecologia</h4>
       <p>{{profile["ecology"]["resume"]}}</p>
       {% endif %}
 
-      {% if "reproduction" in profile %}
+      {% if profile["reproduction"] %}
       <h4>Reprodução</h4>
       <p>{{profile["reproduction"]["resume"]}}</p>
       {% endif %}
     </div>
     <div class="sixteen columns">
 
-      {% if "threats" in profile %}
+      {% if profile["threats"] %}
       <h4>Amea&ccedil;as</h4>
       {% for threat in profile["threats"] %}
       <h5>{{threat["threat"]}}</h5>
@@ -106,7 +103,7 @@
       {% endfor %}
       {% endif %}
 
-      {% if "actions" in profile %}
+      {% if profile["actions"] %}
       <h4>A&ccedil;&otilde;es de conserva&ccedil;&atilde;o</h4>
       {% for action in profile["actions"] %}
       <h5>{{action["action"]}}</h5>
@@ -116,7 +113,7 @@
       {% endif %}
 
 
-      {% if "uses" in profile %}
+      {% if profile["uses"] %}
       <h4>Usos</h4>
       {% for use in profile["users"] %}
       <h5>{{use["use"]}}</h5>
