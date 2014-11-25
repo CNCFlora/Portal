@@ -10,7 +10,7 @@ import json
 class RedlistHandler(MethodView, BaseHandler):
 
     def get(self, language, family):
-        family_description = []
+        newlist = []
         if family:
             json_family = requests.get('http://'+ self.services  +'/assessments/family/'+family)
             family_description = json.loads(json_family.text)
