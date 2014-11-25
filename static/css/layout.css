@@ -740,6 +740,9 @@
 					padding:0.2em;
 					font-size: 16px;
 				}
+				#header #menu ul  li a.active {
+					color:  #20AE54;
+				}
 
 				#header #menu  ul  li:first-child {
 					margin-left: 0;

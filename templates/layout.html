@@ -29,6 +29,12 @@
 
 
 						});
+						$('#menu a').each(function() {
+							if (jQuery(this).attr('href')  ===  window.location.pathname) {
+								jQuery(this).addClass('active');
+							}
+						});
+
 
             FB.init({
               appId      : '1577971729098288',
@@ -38,7 +44,6 @@
 						// $('.gsc-search-button').attr('src', 'http://www.google.com/uds/css/v2/search_box_icon.png')
 
 					});
-
           function render(sel) {
             var tmpl = document.querySelector(sel);
             var frag = tmpl.content;
