@@ -134,7 +134,45 @@
 	background-color: #20AE54;
 
 }
-
+.project-page .box-project{
+		float: left;
+		margin-bottom: 50px;
+}
+.project-page .box-project h4{
+		font-size: 20px;
+		border-bottom: 1px solid #333;
+}
+.project-page .box-project h4:hover{
+		font-size: 20px;
+		border-bottom: 1px solid #20AE54;
+}
+.project-page .box-project h4:hover a{
+		color: #20AE54;
+}
+.project-page .box-project h4 a:hover{
+		text-decoration: none;
+}
+.project-page .box-project .project-img{
+		display: block;
+		overflow: hidden;
+		height: 230px;
+		width: 220px;
+		float: left;
+		list-style: none;
+		position: relative;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		border: 1px solid #333;
+		float: left;
+		padding: 0px;
+}
+.project-page .box-project .project-img img{
+	display: block; /* Otherwise it keeps some space around baseline */
+	width:220px;
+	min-width: 100%;    /* Scale up to fill container width */
+	min-height: 100%;   /* Scale up to fill container height */
+	-ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */
+}
 
 /*.project-page .box-steps .box .title-chart{
 	padding-left:40px;

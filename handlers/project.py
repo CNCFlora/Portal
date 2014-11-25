@@ -9,6 +9,9 @@ import json
 class ProjectHandler(MethodView, BaseHandler):
 
     def get(self, language, project):
+        if not project:
+            project = 'index'
+
         return render_template(
                 'project.html',
                 language=language,

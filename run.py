@@ -37,7 +37,9 @@ app.add_url_rule('/<language>/publicacoes',
   view_func=DocumentHandler.as_view('documents'))
 app.add_url_rule('/<language>/profile/<name>',
   view_func=ProfileHandler.as_view('profile'))
-app.add_url_rule('/<language>/projeto/<project>',
+app.add_url_rule('/<language>/projetos', defaults={'project': None},
+  view_func=ProjectHandler.as_view('projects'))
+app.add_url_rule('/<language>/projetos/<project>',
   view_func=ProjectHandler.as_view('project'))
 app.add_url_rule('/<language>/equipe',
   view_func=EquipeHandler.as_view('equipe'))
