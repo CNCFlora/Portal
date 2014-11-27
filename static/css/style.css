@@ -264,6 +264,7 @@
 .equipe-page .item{
 	padding: 20px;
 	margin: 20px 0px;
+	float: left;
 }
 .equipe-page .item img{
 	float: left;
