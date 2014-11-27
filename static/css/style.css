@@ -22,7 +22,10 @@
 /*******
 	redlist page
 *******/
-
+.redlist-page .description{
+	font-size: 18px;
+	line-height: 1.5;
+}
 .family h3{
 		padding-left: 210px;
 
@@ -310,4 +313,14 @@
 	min-width: 100%;    /* Scale up to fill container width */
 	min-height: 100%;   /* Scale up to fill container height */
 	-ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */
+}
+
+.item-red-list{
+	float: none;
+	width: 35px;
+	height: 35px;
+	padding-left: 9px;
+	padding-right: 7px;
+	padding-top: 7px;
+	margin-left: 20px;
 }
