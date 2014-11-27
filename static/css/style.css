@@ -319,8 +319,9 @@
 	float: none;
 	width: 35px;
 	height: 35px;
-	padding-left: 9px;
+	padding-left: 8px;
 	padding-right: 7px;
 	padding-top: 7px;
 	margin-left: 20px;
+	font-weight: bold;
 }

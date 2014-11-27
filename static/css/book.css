@@ -568,25 +568,10 @@
     }
 
 @media print {
-    footer {
-        display: none;
-    }
-
-    header {
-        display: none;
-    }
-
-    h1 {
-        display: none;
-    }
 
     .biblios a {
         display: none;
     }
-}
-
-header, h1 {
-    display: none;
 }
 
 footer {
@@ -609,7 +594,7 @@ p {
 
 .index .page {
     float: right;
-    font-size: 12px; 
+    font-size: 12px;
     padding-right: 15px;
     display: none;
 }
@@ -668,15 +653,14 @@ h4, h5 {
 }
 
 img.iucn {
-    height: 60px;
+    height: 61px;
     vertical-align: middle;
 display: inline;
 margin-top:0;
 }
 
 img {
-display: block;
-margin-top: 20px;
+display: inline-block;
 margin-bottom: 0;
 }
 
