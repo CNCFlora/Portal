@@ -94,7 +94,7 @@
 
 			.row > * {
 				/* padding-left: (gutters) */
-				padding-left: 40px;
+				/*padding-left: 40px;*/
 			}
 
 			.row + .row > * {

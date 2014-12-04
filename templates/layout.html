@@ -35,6 +35,11 @@
 								jQuery(this).addClass('active');
 							}
 						});
+						$('#contato').hide();
+						$('.link-contato').click(function(){
+							$('#contato').toggle(500);
+							return false;
+						});
 
 
             FB.init({
@@ -158,13 +163,14 @@
 							<li><a href="{{base_url}}/pt-br/projetos" class="icon ">Projetos</a></li>
 							<li><a href="{{base_url}}/pt-br/publicacoes" class="icon ">Documentos</a></li>
 							<li><a href="{{base_url}}/pt-br/equipe" class="icon ">Equipe</a></li>
-							<li><a href="#" class="icon ">Contato</a></li>
+							<li><a href="" class="icon link-contato">Contato</a></li>
 					</ul>
 				</div>
 				</section>
-				<section class="col-sm-6 col-md-6 col-lg-6" style="display: none;">
+				<section id="contato" class="box-contato col-sm-6 col-md-6 col-lg-6" >
+					<div class="col-sm-10 col-md-10 col-lg-10">
 					<h3>Contato</h3>
-					<form>
+					<form  action="{{base_url}}/contato" method="post"  >
 						<div class="row half collapse-at-2">
 							<div class="6u">
 								<input type="text" name="name" id="name" placeholder="Nome" />
@@ -186,6 +192,7 @@
 							</div>
 						</div>
 					</form>
+				</div>
 				</section>
 
 				<ul class="links parceiros col-sm-6 col-md-6 col-lg-6">

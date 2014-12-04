@@ -22,11 +22,14 @@ app.secret_key = 'some_secret'
 app.config['MARROWMAILER_CONFIG'] = {
     'manager.use': 'futures',
     'transport.use': 'smtp',
-    'transport.host': '',
+    'transport.host': 'mtp.gmail.com',
+    'transport.port': 465,
+    'transport.tls': 'ssl',
+    'transport.username': 'sistema@cncflora.net',
+    'transport.password': 'sistema@cncflora',
 }
 app.url_map.strict_slashes = False
 mailer = Mailer(app)
-
 
 app.add_url_rule('/', view_func=HomeHandler.as_view('home'))
 app.add_url_rule('/<language>/listavermelha',defaults={'family': None},

@@ -27,10 +27,7 @@
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 		margin: 0;
 		padding: 0;
-		border: 0;
-		font-size: 100%;
-		font: inherit;
-		vertical-align: baseline; }
+		border: 0; }
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block; }
 	body {
@@ -52,10 +49,10 @@
 ================================================== */
 	body {
 		background: #fff;
-		font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		/*font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
 		color: #444;
-		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
-		-webkit-text-size-adjust: 100%;
+		/*-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */*/
+		/*-webkit-text-size-adjust: 100%;*/
  }
 
 
@@ -63,7 +60,7 @@
 ================================================== */
 	h1, h2, h3, h4, h5, h6 {
 		color: #181818;
-		font-family: "Georgia", "Times New Roman", serif;
+		/*font-family: "Georgia", "Times New Roman", serif;*/
 		font-weight: normal; }
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
 	h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
@@ -126,7 +123,7 @@
 
 /* #Buttons
 ================================================== */
-
+/*
 	.button,
 	button,
 	input[type="submit"],
@@ -155,7 +152,7 @@
 	  margin-bottom: 20px;
 	  line-height: normal;
 	  padding: 8px 10px;
-	  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+	  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; }*/
 
 	.button:hover,
 	button:hover,
@@ -224,7 +221,7 @@
 		-moz-border-radius: 2px;
 		-webkit-border-radius: 2px;
 		border-radius: 2px;
-		font: 13px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		/*font: 13px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
 		color: #777;
 		margin: 0;
 		width: 210px;
@@ -347,7 +344,7 @@
 /* #Base 960 Grid
 ================================================== */
 
-    .container                                  { position: relative; width: 960px; margin: 0 auto; padding: 0; }
+    /*.container                                  { position: relative; width: 960px; margin: 0 auto; padding: 0; }*/
     .container .column,
     .container .columns                         { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
     .row                                        { margin-bottom: 20px; }
@@ -574,10 +571,7 @@
     }
 }
 
-footer {
-    text-align: right;
-    font-weight: bold;
-}
+
 
 article {
 }
@@ -698,15 +692,6 @@ table.listao tbody tr td.lesp {
     text-align:left;
 }
 
-#header {
-  background-color: #333;
-  padding: 5px;
-}
-
-#header a, #header a:link, #header a:active, #header a:visited {
-  color: red;
-  text-decoration:none;
-}
 
 .nine.columns {
 }
