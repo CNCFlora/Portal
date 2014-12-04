@@ -1439,7 +1439,7 @@
 
 		.box-charts{
 			margin-bottom: 50px;
-			padding-left: 10%;
+			padding-left: 14%;
 		}
 
 		.box-charts .box{
@@ -1457,19 +1457,19 @@
 		.box-charts .box-chart{
 		  border-radius: 100px;
 		  color: #fff;
-			height: 150px;
-			width: 150px;
+			height: 100px;
+			width: 100px;
 			text-align: center;
 			font-size: 30px;
 			z-index:2;
 		}
 		.box-charts .box .title-chart-one{
-			padding-left:10px;
+			padding-left:0px;
 		}
 		.box-charts .box .chart-layer-one{
 			border-top:4px solid #20AE54;
 			width: 100%;
-			margin-top:-77px;
+			margin-top:-51px;
 			display: block;
 			z-index:0;
 		}
@@ -1480,7 +1480,7 @@
 
 
 		.box-charts .box .title-chart-two{
-			padding-left:40px;
+			padding-left:20px;
 		}
 		.box-charts .box-chart.chart-two{
 		  background-color: #9ACD32;
@@ -1488,12 +1488,12 @@
 		.box-charts .box .chart-layer-two{
 			border-top:4px solid #9ACD32;
 			width: 100%;
-			margin-top:-77px;
+			margin-top:-51px;
 			display: block;
 			z-index:0;
 		}
 		.box-charts .box .title-chart-three{
-			padding-left:30px;
+			padding-left:10px;
 		}
 		.box-charts .box-chart.chart-three{
 		  background-color: #D30100;
@@ -1501,12 +1501,12 @@
 		.box-charts .box .chart-layer-three{
 			border-top:4px solid #D30100;
 			width: 100%;
-			margin-top:-77px;
+			margin-top:-51px;
 			display: block;
 			z-index:0;
 		}
 		.box-charts .box .title-chart-four{
-			padding-left:15px;
+			padding-left:0px;
 		}
 		.box-charts .box-chart.chart-four{
 			margin-right: 0px;
@@ -1515,17 +1515,18 @@
 		.box-charts .box .chart-layer-four{
 			border-top:4px solid #1874CD;
 			width: 100%;
-			margin-top:-77px;
+			margin-top:-51px;
 			display: block;
 			z-index:0;
 		}
 
-		.box-charts  .box strong{
-			margin: 55px 0 0 0px;
+		.box-charts .box strong{
+			margin: 33px 0px 0px;
 			display: block;
 			position: absolute;
-			width:150px;
+			width: 100px;
 			text-align: center;
+			font-size: 24px;
 		}
 /*
 		.box-charts .box-chart.chart-one .layer{
