@@ -39,6 +39,11 @@
 		padding: 6px;
 		border-bottom: 1px solid #e6e6e6;
 }
+
+.search-species{
+	width: 100%;
+	margin-top: -10px;
+}
 .category{
 	color: #fff;
 	min-width: 30px;

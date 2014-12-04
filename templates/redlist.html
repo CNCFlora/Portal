@@ -5,26 +5,35 @@
     <div class="row">
       <div class="sidebar col-sm-3 col-md-3 col-lg-3">
         <h3>Listagem por família</h3>
-        <div class="sidebar-menu">
-          <ul>
+        <div id="familly" class="sidebar-menu">
+          <input class="search" placeholder="Buscar família" />
+          <br/>
+          <br/>
+          <ul class="list">
             {% for familly in families%}
-              <li><a href="{{base_url}}/{{language}}/listavermelha/{{familly}}">{{familly}}</a></li>
+              <li><a href="{{base_url}}/{{language}}/listavermelha/{{familly}}" class="name">{{familly}}</a></li>
             {% endfor %}
           </ul>
+       </div>
       </div>
-      </div>
-      <div class="description col-sm-9 col-md-9 col-lg-9">
+      <div  class="description col-sm-9 col-md-9 col-lg-9">
          {% if family_description %}
-            <div class="family">
+
+            <div id="species" class="family">
               <h3>{{family}}</h3>
+              <input class="search search-species" placeholder="Buscar espécie"/>
+              <br/>
+              <br/>
+              <div class="list">
               {% for data_family in family_description %}
               <p>
-              <a href="{{base_url}}/{{language}}/profile/{{data_family['taxon']['scientificName']}}" target="_blank">
+              <a href="{{base_url}}/{{language}}/profile/{{data_family['taxon']['scientificName']}}" class="name" target="_blank">
                   {{data_family['taxon']['scientificName']}}
                 </a>
                   <span class="category {{data_family['category']}}">{{data_family['category']}}</span>
                 </p>
               {% endfor %}
+              </div>
             </div>
          {% else %}
           {% include "content/"+language+"/listavermelha.html" %}
@@ -33,4 +42,16 @@
     </div>
   </div>
 </section>
+<script src="{{static_url}}/js/list.js"></script>
+<script>
+var options = {
+  valueNames: ['name']
+};
+var famillyList = new List('familly', options);
+
+var optionsspecie = {
+  valueNames: ['name']
+};
+var specieList = new List('species', optionsspecie);
+</script>
 {% endblock %}
