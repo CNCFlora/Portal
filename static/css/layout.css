@@ -1591,8 +1591,8 @@
 .doc .img {
 		display: block;
 		overflow: hidden;
-		height: 240px;
-		width: 240px;
+		height: 200px;
+		width: 200px;
 		float: left;
 		list-style: none;
 		position: relative;
@@ -1603,7 +1603,7 @@
 }
 .doc .img img {
 		display: block; /* Otherwise it keeps some space around baseline */
-		width:240px;
+		width:200px;
 		min-width: 100%;    /* Scale up to fill container width */
 		min-height: 100%;   /* Scale up to fill container height */
 		-ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */
