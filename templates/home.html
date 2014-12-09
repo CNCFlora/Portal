@@ -143,6 +143,7 @@
 
 <script type="text/javascript">
   $(function(){
+      var app_token="CAAWbKCxg5jABAN5KeflhETxDc0XT1K28xuAgK6yAYLUFzYRHEjo1qvc0FijPbWJBth47aTZBrTZCNLW0bUFmy06GyCTOr7xHIZCx39J0M1h80buJLKthB20H7rF2JHuHVoUPlmglMP96eVHcLMzBcYO441bcdZBEwgZA9iIhCq45UfFmzu9RO8wJbDtr9jzIZD"
       FB.api("/cncflora/posts?access_token="+app_token,function(response) {
         document.querySelector("#fb_news_row").innerHTML="";
         var count=0;
