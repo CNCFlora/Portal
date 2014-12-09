@@ -13,6 +13,7 @@ from handlers.document import DocumentHandler
 from handlers.profile import ProfileHandler
 from handlers.project import ProjectHandler
 from handlers.equipe import EquipeHandler
+from handlers.book import BookHandler
 
 application = app = Flask(__name__)
 file_handler = logging.FileHandler('app.log')
@@ -46,6 +47,8 @@ app.add_url_rule('/<language>/projetos/<project>',
   view_func=ProjectHandler.as_view('project'))
 app.add_url_rule('/<language>/equipe',
   view_func=EquipeHandler.as_view('equipe'))
+app.add_url_rule('/<language>/livros',
+  view_func=BookHandler.as_view('livros'))
 
 if __name__ == "__main__":
     app.run(port=8889, host='0.0.0.0', debug=True)

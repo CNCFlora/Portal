@@ -5,16 +5,13 @@ from base import BaseHandler
 import requests
 import jinja2
 
-class ProjectHandler(MethodView, BaseHandler):
+class BookHandler(MethodView, BaseHandler):
 
-    def get(self, language, project):
-        if not project:
-            project = 'index'
+    def get(self, language):
 
         return render_template(
-                'project.html',
+                'book.html',
                 language=language,
                 base_url=self.base_url,
                 static_url=self.static_url,
-                project=project,
                 )
