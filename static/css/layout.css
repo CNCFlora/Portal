@@ -607,6 +607,15 @@
 		.box.post .inner {
 			margin-left: calc(30% + 2em);
 		}
+		.box.post .inner h3{
+			font-weight: initial;
+			margin-bottom: 5px;
+			line-height: 1.2em;
+		}
+		.box.post .inner p{
+			line-height: 1.5em;
+			font-size: 17px;
+		}
 
 			.box.post .inner > :last-child {
 				margin-bottom: 0;
@@ -1427,7 +1436,7 @@
 		.image.box-img {
 				display: block;
 				overflow: hidden;
-				height: 150px;
+				height: 180px;
 				width: 160px;
 		}
 		.image.box-img img {
