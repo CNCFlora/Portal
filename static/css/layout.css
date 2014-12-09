@@ -1746,9 +1746,15 @@ input.gsc-search-button, input.gsc-search-button:hover, input.gsc-search-button:
 	#banner.banner-content{
 		height: 10em!important;
 	}
+	.project-page .banner-medium img{
+		max-width: 100% !important;
+	}
 }
 @media only screen and (max-width: 768px){
 	#banner.banner-content{
 		height: 10em!important;
+	}
+	.project-page .banner-medium img{
+		max-width: 100%!important;
 	}
 }
