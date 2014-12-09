@@ -18,6 +18,9 @@ class ProfileHandler(MethodView, BaseHandler):
         assessment = json.loads(json_data.text)
         assessment["date"] = datetime.datetime.fromtimestamp(assessment["metadata"]["created"]).strftime('%d-%m-%Y')
 
+        if assessment["rationale"][0] == '?':
+          assessment["rationale"] = assessment["rationale"][1:]
+
         url = 'http://'+server+'/profiles/taxon/'+urllib.quote(  name[:1].upper()+name[1:] )
         json_data = requests.get(url)
         profile = json.loads(json_data.text)

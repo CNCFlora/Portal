@@ -27,9 +27,12 @@
               <div class="list">
               {% for data_family in family_description %}
               <p>
-              <a href="{{base_url}}/{{language}}/profile/{{data_family['taxon']['scientificName']}}" class="name" target="_blank">
-                  {{data_family['taxon']['scientificName']}}
+              <i>
+                <a href="{{base_url}}/{{language}}/profile/{{data_family['taxon']['scientificNameWithoutAuthorship']}}" class="name" target="_blank">
+                  {{data_family['taxon']['scientificNameWithoutAuthorship']}}
                 </a>
+              </i>
+                {{data_family['taxon']['scientificNameAuthorship']}}
                   <span class="category {{data_family['category']}}">{{data_family['category']}}</span>
                 </p>
               {% endfor %}

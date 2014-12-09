@@ -10,12 +10,14 @@
           <img src="{{static_url}}/images/{{assessment["category"]}}.jpg" alt="{{assessment["category"]}}" class="iucn" />
         </h3>
     </div>
+    <style type="text/css"> h4 { font-size: 22px; } </style>
     <div class="nine columns">
+        <h4>Avalalçao de risco de extinção</h4>
         <p class='date'><strong>Data: </strong> {{assessment["date"]}}</p>
-        <p class='criteria'><strong>Criterio: </strong> {{assessment["criteria"]}}</p>
+        <p class='criteria'><strong>Criterio: </strong> {{assessment["criteria"]|default("N/A")}}</p>
         <p class='assessor'><strong>Avaliador: </strong> {{assessment["assessor"]}}</p>
         <p class='evaluator'><strong>Revisor: </strong> {{assessment["evaluator"]}}</p>
-        <p class='rationale'> {{assessment["rationale"]}}</p>
+        <p class='rationale'> {{assessment["rationale"]|safe}}</p>
         <!--
         <br /><p class='especialistas'><strong>Especialistas Bot&acirc;nicos</strong>: ".implode($spp->Especialistas,", ").".</p>";
         <p class='especialistas'><strong>Analistas de Dados</strong>: ".implode($spp->Analistas,", ").".</p>";
@@ -24,7 +26,7 @@
         -->
         {% if profile["taxonomicNotes"] %}
         <h4>Notas Taxon&ocirc;micas</h4>
-        <p>{{profile["taxonomicNotes"]["notes"]}}</p>
+        <p>{{profile["taxonomicNotes"]["notes"]|safe}}</p>
         {% endif %}
         <!--
         <h4>Sin&ocirc;nimos</h4>
@@ -39,29 +41,29 @@
     </div>
 
     <div class="sixteen columns">
-      {% if profile["economicValue"] %}
+      {% if profile["economicValue"] and profile["economicValue"]["details"] and profile["economicValue"]["details"]|length > 1 %}
       <h4>Pot&ecirc;ncial valor econ&ocirc;mico</h4>
-      <p>{{profile["economicValue"]["details"]}}</p>
+      <p>{{profile["economicValue"]["details"]|safe}}</p>
       {% endif %}
 
-      {% if profile["population"] %}
+      {% if profile["population"] and profile["population"]["resume"] and profile["population"]["resume"]|length > 1 %}
       <h4>Dados populacionais</h4>
-      <p>{{profile["population"]["resume"]}}</p>
+      <p>{{profile["population"]["resume"]|safe}}</p>
       {% endif %}
 
-      {% if profile["distribution"] %}
+      {% if profile["distribution"] and profile["distribution"]["resume"] and profile["distribution"]["resume"]|length > 1 %}
       <h4>Distribuição</h4>
-      <p>{{profile["distribution"]["resume"]}}</p>
+      <p>{{profile["distribution"]["resume"]|safe}}</p>
       {% endif %}
 
-      {% if profile["ecology"] %}
+      {% if profile["ecology"] and profile["ecology"]["resume"] and profile["ecology"]["resume"]|length > 1 %}
       <h4>Ecologia</h4>
-      <p>{{profile["ecology"]["resume"]}}</p>
+      <p>{{profile["ecology"]["resume"]|safe}}</p>
       {% endif %}
 
-      {% if profile["reproduction"] %}
+      {% if profile["reproduction"] and profile["reproduction"]["resume"] and profile["reproduction"]["resume"]|length > 1 %}
       <h4>Reprodução</h4>
-      <p>{{profile["reproduction"]["resume"]}}</p>
+      <p>{{profile["reproduction"]["resume"]|safe}}</p>
       {% endif %}
     </div>
     <div class="sixteen columns">
@@ -69,34 +71,48 @@
       {% if profile["threats"] %}
       <h4>Amea&ccedil;as</h4>
       {% for threat in profile["threats"] %}
-      <h5>{{threat["threat"]}}</h5>
-      <table>
-          <tr>
-              <td>Stress</td>
-              <td>{{threat["stress"]}}</td>
-          </tr>
-          <tr>
-              <td>Incid&ecirc;ncia</td>
-              <td>{{threat["incidence"]}}</td>
-          </tr>
-          <tr>
-              <td>Severidade</td>
-              <td>{{threat["severity"]}}</td>
-          </tr>
-          <tr>
-              <td>Detalhes</td>
-              <td>{{threat["details"]}}</td>
-          </tr>
-      </table>
+      {% if threat["threat"] %}
+      <p>
+          <strong>{{threat["threat"]}}</strong><br />
+          {% if threat["stress"] %}
+              <strong>Stress</strong>
+              {{threat["stress"]}}
+          <br />
+          {% endif %}
+          {% if threat["incidence"] %}
+              <strong>Incid&ecirc;ncia</strong>
+              {{threat["incidence"]}}
+          <br />
+          {% endif %}
+          {% if threat["severity"] %}
+              <strong>Severidade</strong>
+              {{threat["severity"]}}
+          <br />
+          {% endif %}
+          {% if threat["details"] %}
+              <strong>Detalhes</strong>
+              {{threat["details"]}}
+            <br />
+          {% endif %}
+      </p>
+      {% endif %}
       {% endfor %}
       {% endif %}
 
       {% if profile["actions"] %}
       <h4>A&ccedil;&otilde;es de conserva&ccedil;&atilde;o</h4>
       {% for action in profile["actions"] %}
-      <h5>{{action["action"]}}</h5>
-      <p><b>Situa&ccedil;&atilde;o</b>: {{action['situation']}} </p>
-      <p><b>Observa&ccedil;&otilde;es</b>: {{action['details']}} </p>
+      {% if action["action"] %}
+      <p>
+        <strong>{{action["action"]}}</strong><br />
+        {% if action["situation"] %}
+        <b>Situa&ccedil;&atilde;o</b>: {{action['situation']}} <br />
+        {% endif %}
+        {% if action["details"] %}
+        <b>Observa&ccedil;&otilde;es</b>: {{action['details']}}  <br />
+        {% endif %}
+      </p>
+      {% endif %}
       {% endfor %}
       {% endif %}
 
@@ -104,22 +120,26 @@
       {% if profile["uses"] %}
       <h4>Usos</h4>
       {% for use in profile["users"] %}
-      <h5>{{use["use"]}}</h5>
-      <p><b>Observa&ccedil;&otilde;es</b>: {{use["details"]}} </p>
+      {% if use["use"] %}
+      <p>
+      <strong>{{use["use"]}}</strong><br />
+        {% if use["user"]["details"] %}
+        <b>Observa&ccedil;&otilde;es</b>: {{use["details"]}}
+        {% endif %}
+      </p>
+      {% endif %}
       {% endfor %}
       {% endif %}
     </div>
 
     <div class="sixteen columns biblio">
       <h4>Bibliografia</h4>
-      <ul class='biblios'>
       {% for ref in references %}
-        <li>{{ref}}</li>
+      <p>{{ref}}</p>
       {% endfor %}
-      </ul>
     </div>
-</section>
-   </div>
+  </section>
+ </div>
 </section>
 
 <!-- </article> -->
