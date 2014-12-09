@@ -802,6 +802,7 @@
 				#header #menu  ul  li .list-projects li{
 					display: block;
 					margin-left: 5px;
+					line-height: 1.65em;
 				}
 				#header #menu  ul  li .list-projects li a{
 					color: #fff;
