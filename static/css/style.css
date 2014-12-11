@@ -163,8 +163,8 @@
 	display: none;
 }
 .project-page .bx-wrapper .bx-viewport{
-	box-shadow: 0 0 5px #ccc;
-	border: 5px solid #fff;
+	/*box-shadow: 0 0 5px #ccc;*/
+	/*border: 5px solid #fff;*/
 }
 .project-page .bx-wrapper img{
 	max-height:300px;
