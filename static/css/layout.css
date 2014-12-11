@@ -1671,6 +1671,10 @@
 	opacity: 0.9;
 	visibility: visible;
 }
+.doc .img.breve .portfolio-overlay {
+	opacity: 0.8;
+	visibility: visible;
+}
 
 .view-page h3{
 	text-align: center;
