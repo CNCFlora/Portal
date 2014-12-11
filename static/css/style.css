@@ -18,6 +18,9 @@
 		opacity: 0.8;
 
 }
+.news-description{
+	width: 300px;
+}
 
 /*******
 	redlist page
@@ -127,6 +130,11 @@
 .project-page .banner-medium img{
 	max-width: 50%;
 	margin: 10px 10px 5px 0px;
+}
+.project-page .banner-center img{
+	max-width: 40%;
+	margin: 10px auto;
+	display:block;
 }
 .project-page .banner-m img{
 	max-width: 30%;
@@ -346,4 +354,27 @@
 	padding-top: 7px;
 	margin-left: 20px;
 	font-weight: bold;
+}
+
+@media only screen and (max-width: 959px) and (min-width: 768px){
+	#banner.banner-content{
+		height: 10em;
+	}
+	.project-page .banner-medium img{
+		max-width: 100%;
+	}
+	.project-page .banner-center img{
+		max-width: 100%;
+	}
+}
+@media only screen and (max-width: 768px){
+	#banner.banner-content{
+		height: 10em;
+	}
+	.project-page .banner-medium img{
+		max-width: 100%;
+	}
+	.project-page .banner-center img{
+		max-width: 100%;
+	}
 }
