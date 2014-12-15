@@ -14,8 +14,9 @@ ADD requirements.txt /root/portal/requirements.txt
 RUN pip install -r /root/portal/requirements.txt
 
 ADD ./static/pdf /root/portal/static/pdf
-
 ADD ./static /root/portal/static
-
-ADD . /root/portal
+ADD ./run.py /root/portal/run.py
+ADD ./json /root/portal/json
+ADD ./templates /root/portal/templates
+ADD ./handlers /root/portal/handlers
 
