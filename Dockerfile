@@ -1,13 +1,17 @@
-FROM ubuntu:14.04
+FROM debian:wheezy
 
-RUN apt-get update && apt-get install -y python-dev python python-pip libfontconfig supervisor
+RUN sed -i -e 's/http.debian.net/ftp.us.debian.org/g' /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y python-dev python python-pip libfontconfig && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
-ADD supervisord.conf /etc/supervisor/conf.d/portal.conf
+EXPOSE 80
 
-EXPOSE 8000
-EXPOSE 9001
+RUN mkdir /root/portal
 
-CMD ["supervisord"]
+WORKDIR /root/portal
+CMD ["gunicorn","-b","0.0.0.0:80","run"]
 
 ADD requirements.txt /root/portal/requirements.txt
 
