@@ -163,7 +163,10 @@
         var count=0;
         for(var i=0;i<response.data.length && count < 3;i++) {
           var post = response.data[i];
-          if(typeof post == 'object' && post.type=='photo' && typeof post.message == 'string' && post.message.length >= 5) {
+          if(typeof post == 'object' 
+            && (post.type=='photo' || post.type == 'video')
+            && typeof post.message == 'string' 
+            && post.message.length >= 5) {
             var section = render('#noticia_tmpl');
             section.querySelector("img").src = post.picture;
             section.querySelector("h3").textContent = "";
@@ -171,9 +174,13 @@
             section.querySelector("p").textContent = post.message.slice(0,150)+"...";
             section.querySelector("section").setAttribute("id","fb_"+post.object_id);
             section.into('#fb_news_row');
-            FB.api("/"+post.object_id+"?access_token="+app_token,function(response){
-              document.querySelector("#fb_"+response.id+" img").src = response.source;
-            });
+            (function(post){
+             FB.api("/"+post.object_id+"?access_token="+app_token,function(response){
+               var src = response.source;
+               if(post.type=='video') src = response.picture;
+               document.querySelector("#fb_"+response.id+" img").src = src;
+               });
+             })(post);
             count++;
           }
         }
