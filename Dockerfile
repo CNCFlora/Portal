@@ -1,6 +1,7 @@
 FROM debian:wheezy
 
 RUN sed -i -e 's/http.debian.net/ftp.us.debian.org/g' /etc/apt/sources.list && \
+    sed -i -e 's/httpredir/ftp.us/g' /etc/apt/sources.list && \
     apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y python-dev python python-pip libfontconfig && \
