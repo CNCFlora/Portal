@@ -1,0 +1,6 @@
+portal:
+    build: .
+    ports:
+        - 8081:80
+    volumes:
+        - .:/opt/portal

@@ -14,6 +14,8 @@ class RedlistHandler(MethodView, BaseHandler):
         if family:
             json_family = requests.get('http://'+ self.services  +'/assessments/family/'+family)
             family_description = json.loads(json_family.text)
+            for taxon in family_description:
+                taxon['taxon']['scientificNameAuthorship'] = taxon['taxon']['scientificNameAuthorship'] 
             newlist = sorted(family_description, key=lambda k: k['taxon']['scientificName'])
         else:
             family = {}

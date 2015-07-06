@@ -15,6 +15,10 @@ from handlers.project import ProjectHandler
 from handlers.equipe import EquipeHandler
 from handlers.book import BookHandler
 
+import sys;
+reload(sys);
+sys.setdefaultencoding("utf8")
+
 application = app = Flask(__name__)
 file_handler = logging.FileHandler('app.log')
 app.logger.addHandler(file_handler)

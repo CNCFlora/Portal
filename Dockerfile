@@ -9,19 +9,19 @@ RUN sed -i -e 's/http.debian.net/ftp.us.debian.org/g' /etc/apt/sources.list && \
 
 EXPOSE 80
 
-RUN mkdir /root/portal
+RUN mkdir /opt/portal
 
-WORKDIR /root/portal
+WORKDIR /opt/portal
 CMD ["gunicorn","-b","0.0.0.0:80","run"]
 
-ADD requirements.txt /root/portal/requirements.txt
+ADD requirements.txt /opt/portal/requirements.txt
 
-RUN pip install -r /root/portal/requirements.txt
+RUN pip install -r /opt/portal/requirements.txt
 
-ADD ./static/pdf /root/portal/static/pdf
-ADD ./static /root/portal/static
-ADD ./run.py /root/portal/run.py
-ADD ./json /root/portal/json
-ADD ./templates /root/portal/templates
-ADD ./handlers /root/portal/handlers
+ADD ./static/pdf /opt/portal/static/pdf
+ADD ./static /opt/portal/static
+ADD ./run.py /opt/portal/run.py
+ADD ./json /opt/portal/json
+ADD ./templates /opt/portal/templates
+ADD ./handlers /opt/portal/handlers
 

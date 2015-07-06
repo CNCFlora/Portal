@@ -359,6 +359,10 @@ p {
 	font-weight: bold;
 }
 
+.item {
+  min-height: 350px;
+}
+
 @media only screen and (max-width: 959px) and (min-width: 768px){
 	#banner.banner-content{
 		height: 10em;
