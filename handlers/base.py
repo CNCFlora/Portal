@@ -1,7 +1,3 @@
-from flask.views import MethodView
-from flask import Flask, render_template, request, flash
-import jinja2
-import json
 import os
 
 class BaseHandler():
@@ -9,6 +5,7 @@ class BaseHandler():
     base_url= os.environ.get('BASE','')
     static_url= base_url+'/static'
 
-    services= os.environ.get('SERVICES_PORT_8080_TCP','tcp://cncflora.jbrj.gov.br/services')[6:]
-    print services
+    host = os.environ.get('HOST', 'cncflora.jbrj.gov.br')
+    services_url = 'tcp://' + host + '/services'
+    services= os.environ.get('SERVICES_PORT_8080_TCP', services_url)[6:]
 
