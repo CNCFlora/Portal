@@ -1,6 +1,7 @@
 portal:
     build: .
+    command: "python run.py"
     ports:
-        - 8081:80
+        - 8081:8889
     volumes:
         - .:/opt/portal
