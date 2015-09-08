@@ -36,29 +36,6 @@
     </div>
 
     <div class="seven columns map">
-      {% if 'current' in assessment['taxon'] %}
-      <h4>Taxonomia atual</h4>
-      <p>Atenção: as informações de taxonomia atuais podem ser diferentes das da data da avaliação.</p>
-      <p>
-        <strong>Nome válido</strong>: 
-          <i>{{assessment['taxon']['current']['scientificNameWithoutAuthorship']}}</i>
-          {{assessment['taxon']['current']['scientificNameAuthorship']}};
-      </p>
-        {% if assessment['taxon']['current']['synonyms']|length >= 1 %}
-        <p>
-          <strong>Sinônimos</strong>:
-          <ul>
-            {% for syn in assessment['taxon']['current']['synonyms'] %}
-            <li>
-              &gt;
-              <i>{{syn['scientificNameWithoutAuthorship']}}</i>
-              {{syn['scientificNameAuthorship']}};
-            </li>
-            {% endfor %}
-          </ul>
-        </p>
-        {% endif %}
-      {% endif %}
       <h4>Mapa de distribui&ccedil;&atilde;o</h4>
       <img src="http://cncflora.jbrj.gov.br/arquivos/arquivos/mapas/{{assessment["taxon"]["scientificNameWithoutAuthorship"]}}.jpg" />
     </div>
