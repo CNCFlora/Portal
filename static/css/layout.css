@@ -1223,15 +1223,32 @@
 				margin-top: 60px !important;
 		}
 		.parceiros{
-				margin-top: 70px;
+		}
+		.parceiros ul{
+      margin-bottom: 10px;
+    }
+		.parceiros p {
+      color: #eee;
 		}
 		.parceiros li{
 				display: inline;
-				margin-right: 20px;
+				margin-right: 10px;
 		}
 
+    .endereco img {
+      float: right;
+      width: 120px;
+      margin-right: 10px;
+      border: 1px solid rgb(204, 204, 204);
+      border-radius: 3px;
+      background-color: rgb(255, 255, 255);
+    }
 		.parceiros li .img-1{
-				width: 50px;
+      padding: 5px;
+      border: 1px solid rgb(204, 204, 204);
+      border-radius: 3px;
+      background-color: rgb(255, 255, 255);
+      height: 75px;
 		}
 		.parceiros li .img-2{
 				width: 130px;
