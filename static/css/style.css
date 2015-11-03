@@ -45,6 +45,9 @@ p {
 		padding: 6px;
 		border-bottom: 1px solid #e6e6e6;
 }
+.family p small{
+  font-size: 14px;
+}
 
 .search-species{
 	width: 100%;

@@ -26,15 +26,33 @@
               <br/>
               <div class="list">
               {% for data_family in family_description %}
-              <p>
+              <p class='spp'>
               <i>
-                <a href="{{base_url}}/{{language}}/profile/{{data_family['taxon']['scientificNameWithoutAuthorship']}}" class="name" target="_blank">
+                <a href="{{base_url}}/{{language}}/profile/{{data_family['taxon']['scientificNameWithoutAuthorship']}}" target="_blank">
                   {{data_family['taxon']['scientificNameWithoutAuthorship']}}
                 </a>
               </i>
                 {{data_family['taxon']['scientificNameAuthorship']}}
                   <span class="category {{data_family['category']}}">{{data_family['category']}}</span>
+                {% if 'current' in data_family['taxon'] %}
+                  <small>
+                  {% if data_family['taxon']['scientificNameWithoutAuthorship'] != data_family['taxon']['current']['scientificNameWithoutAuthorship'] %}
+                    <br />
+                    Nome atual: 
+                      <i>{{data_family['taxon']['current']['scientificNameWithoutAuthorship']}}</i>
+                      {{data_family['taxon']['current']['scientificNameAuthorship']}}
+                  {% endif %}
+                  {% if data_family['taxon']['current']['synonyms']|length >= 1 %}
+                    <br />
+                    Outros nomes: 
+                    {% for syn in data_family['taxon']['current']['synonyms'] %}
+                      <i>{{syn['scientificNameWithoutAuthorship']}}</i> {{syn['scientificNameAuthorship']}};
+                    {% endfor %}
+                  {% endif %}
+                  </small>
+                {% endif %}
                 </p>
+
               {% endfor %}
               </div>
             </div>
@@ -53,6 +71,16 @@ var options = {
 };
 var famillyList = new List('familly', options);
 
+var spps = document.querySelectorAll(".spp");
+for(var s=0;s<spps.length;s++){
+  var names = spps[s].querySelectorAll("i");
+  var new_names=document.createElement("span");
+  new_names.setAttribute('class','name hide');
+  for(var n=0;n<names.length;n++){
+    new_names.innerHTML += names[n].textContent.trim()+";"
+  }
+  spps[s].appendChild(new_names);
+}
 var optionsspecie = {
   page: 9999,
   valueNames: ['name']
