@@ -25,11 +25,15 @@ class ProfileHandler(MethodView, BaseHandler):
         json_data = requests.get(url)
         profile = json.loads(json_data.text)
 
+        references=[]
+        if 'references' in assessment.keys():
+            references=assessment[ "references" ],
+
         return render_template(
                 'profile.html',
                 language=language,
                 base_url=self.base_url,
                 static_url=self.static_url,
+                references=references,
                 profile=profile,
-                references=assessment[ "references" ],
                 assessment=assessment)
