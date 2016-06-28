@@ -1453,7 +1453,7 @@
 		.image.box-img {
 				display: block;
 				overflow: hidden;
-				height: 180px;
+				/*height: 180px;*/
 				width: 160px;
 		}
 		.image.box-img img {
