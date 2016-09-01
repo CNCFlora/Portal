@@ -10,13 +10,28 @@
           <img src="{{static_url}}/images/{{assessment["category"]}}.jpg" alt="{{assessment["category"]}}" class="iucn" />
         </h3>
     </div>
-    <style type="text/css"> h4 { font-size: 22px; } </style>
+    <style type="text/css"> h4 { font-size: 22px; } hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 100%;
+  background-color:black;
+  height: 5px;
+} </style>
     <div class="nine columns">
-        <h4>Avaliação de risco de extinção</h4>
+      <h4>Informações da avaliação de risco de extinção</h4>
+    </div>
+    <hr>
+    <div class="nine columns">
         <p class='date'><strong>Data: </strong> {{assessment["date"]}}</p>
         <p class='criteria'><strong>Criterio: </strong> {{assessment["criteria"]|default("N/A")}}</p>
         <p class='assessor'><strong>Avaliador: </strong> {{assessment["assessor"]}}</p>
         <p class='evaluator'><strong>Revisor: </strong> {{assessment["evaluator"]}}</p>
+        <p class='assessor'><strong>Analista(s) de Dados: </strong> {{profile["metadata"]["creator"]}}</p>
+        <p class='assessor'><strong>Analista(s) SIG: </strong> {{georeferencedBy}}</p>
+        <p class='assessor'><strong>Especialista(s): </strong> {{specialist}}</p>
+        <br/>
+        <p class='p'><strong>Justificativa </strong></p>
         <p class='rationale'> {{assessment["rationale"]|safe}}</p>
         <!--
         <br /><p class='especialistas'><strong>Especialistas Bot&acirc;nicos</strong>: ".implode($spp->Especialistas,", ").".</p>";
@@ -24,10 +39,7 @@
         <p class='especialistas'><strong>Analistas SIG</strong>: ".implode($spp->AnalistasSIG,", ").".</p>";
         <?php include 'ficha.php' ?>
         -->
-        {% if profile["taxonomicNotes"] %}
-        <h4>Notas Taxon&ocirc;micas</h4>
-        <p>{{profile["taxonomicNotes"]["notes"]|safe}}</p>
-        {% endif %}
+
         <!--
         <h4>Sin&ocirc;nimos</h4>
         <ul>
@@ -40,7 +52,7 @@
       <h4>Taxonomia atual</h4>
       <p>Atenção: as informações de taxonomia atuais podem ser diferentes das da data da avaliação.</p>
       <p>
-        <strong>Nome válido</strong>: 
+        <strong>Nome válido</strong>:
           <i>{{assessment['taxon']['current']['scientificNameWithoutAuthorship']}}</i>
           {{assessment['taxon']['current']['scientificNameAuthorship']}};
       </p>
@@ -63,7 +75,17 @@
       <img src="http://cncflora.jbrj.gov.br/arquivos/arquivos/mapas/{{assessment["taxon"]["scientificNameWithoutAuthorship"]}}.jpg" />
     </div>
 
+    <div class="nine columns">
+      <h4>Informações sobre a espécie</h4>
+    </div>
+    <hr>
+
     <div class="sixteen columns">
+      {% if profile["taxonomicNotes"] %}
+      <h4>Notas Taxon&ocirc;micas</h4>
+      <p>{{profile["taxonomicNotes"]["notes"]|safe}}</p>
+      {% endif %}
+
       {% if profile["economicValue"] and profile["economicValue"]["details"] and profile["economicValue"]["details"]|length > 1 %}
       <h4>Pot&ecirc;ncial valor econ&ocirc;mico</h4>
       <p>{{profile["economicValue"]["details"]|safe}}</p>
@@ -157,9 +179,13 @@
 
     <div class="sixteen columns biblio">
       <h4>Bibliografia</h4>
-      {% for ref in references %}
-      <p>{{ref}}</p>
-      {% endfor %}
+      <p>{{references_str}}</p>
+    </div>
+
+    <div class="sixteen columns biblio">
+      <h4>Como citar</h4>{{profile["uses"]}}
+      <p contenteditable="plaintext-only">CNCFlora. {{assessment["taxon"]["scientificNameWithoutAuthorship"]}} in Lista Vermelha da flora brasileira versão 2016.1 Centro Nacional de Conservação da Flora.
+      Disponível em <<q>http://cncflora.jbrj.gov.br/portal/pt-br/profile/{{assessment["taxon"]["scientificNameWithoutAuthorship"]}}</q>>. Acesso em <span id="time"></span></p>
     </div>
   </section>
  </div>
@@ -168,6 +194,10 @@
 <!-- </article> -->
 <script type="text/javascript">
 		var _gaq = _gaq || [];
+    var today = new Date();
+    var nomeMes = new Array ("janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro")
+
+    document.getElementById('time').innerHTML=today.getDate() + " " + nomeMes[today.getMonth()] + " " + today.getFullYear();
 		_gaq.push(['_setAccount', 'UA-13203805-2']);
 		_gaq.push(['_trackPageview']);
 		(function() {
