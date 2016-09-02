@@ -26,6 +26,10 @@ class ProfileHandler(MethodView, BaseHandler):
         json_data = requests.get(url)
         profile = json.loads(json_data.text)
 
+        last_modified_by = profile["metadata"]["contributor"].split(";")[0]
+
+        last_modified_at = datetime.datetime.fromtimestamp(profile["metadata"]["modified"]).strftime('%d/%m/%Y - %H:%M:%S')
+
         url = 'http://'+server+'/search/occurrences?q='+urllib.quote(  name[:1].upper()+name[1:] )+'&type=occurrence'
         json_data = requests.get(url)
         occurrences = json.loads(json_data.text)
@@ -57,7 +61,6 @@ class ProfileHandler(MethodView, BaseHandler):
         references_str=""
         for ref in references:
             for ref0 in ref:
-                print ref[0]
                 references_str += " "+ref0
 
         return render_template(
@@ -69,4 +72,6 @@ class ProfileHandler(MethodView, BaseHandler):
                 profile=profile,
                 assessment=assessment,
                 georeferencedBy=georeferencedBy,
-                specialist=specialist)
+                specialist=specialist,
+                last_modified_by=last_modified_by,
+                last_modified_at=last_modified_at)
