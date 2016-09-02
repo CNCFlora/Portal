@@ -18,10 +18,10 @@
   background-color:black;
   height: 5px;
 } </style>
-    <div class="nine columns">
+    <div class="sixteen columns">
       <h4>Informações da avaliação de risco de extinção</h4>
+      <hr>
     </div>
-    <hr>
     <div class="nine columns">
         <p class='date'><strong>Data: </strong> {{assessment["date"]}}</p>
         <p class='criteria'><strong>Criterio: </strong> {{assessment["criteria"]|default("N/A")}}</p>
@@ -75,10 +75,10 @@
       <img src="http://cncflora.jbrj.gov.br/arquivos/arquivos/mapas/{{assessment["taxon"]["scientificNameWithoutAuthorship"]}}.jpg" />
     </div>
 
-    <div class="nine columns">
+    <div class="sixteen columns">
       <h4>Informações sobre a espécie</h4>
+      <hr>
     </div>
-    <hr>
 
     <div class="sixteen columns">
       {% if profile["taxonomicNotes"] %}
