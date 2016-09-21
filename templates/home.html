@@ -90,7 +90,7 @@
                         Plano de Ação Nacional para a conservação da flora ameaçada de extinção da Serra do Espinhaço Meridional
                     </a>
                 </h3>
-                <p>O <i>Plano de Ação Nacional para a conservação da flora
+                <p align="justify">O <i>Plano de Ação Nacional para a conservação da flora
                     ameaçada de extinção da Serra do Espinhaço Meridional </i>
                     contém uma série de ações elaboradas para mitigar as
                     ameaças que incidem neste território do estado de Minas
@@ -99,8 +99,8 @@
                     sobre aspectos ambientais, socioeconômicos e
                     histórico-culturais desse território alvo, bem como
                     informações complementares sobre cada espécie Criticamente
-                    em perigo e com Dados insuficientes, disponíveis no 
-                    <a href="http://dspace.jbrj.gov.br/jspui/handle/doc/42">Anexo</a>. 
+                    em perigo e com Dados insuficientes, disponíveis no
+                    <a href="http://dspace.jbrj.gov.br/jspui/handle/doc/42">Anexo</a>.
                 </p>
             </div>
         </div>
@@ -116,7 +116,7 @@
                         Plano de Ação Nacional para a conservação da flora ameaçada de extinção da região de Grão Mogol - Francisco Sá
                     </a>
                 </h3>
-                <p>O <i>Plano de Ação Nacional para a conservação da flora ameaçada
+                <p align="justify">O <i>Plano de Ação Nacional para a conservação da flora ameaçada
                     de extinção da região de Grão Mogol-Francisco Sá</i> contém uma
                 série de ações elaboradas para mitigar as ameaças que incidem
                 neste território do Norte de Minas Gerais. Lá ocorrem 74
@@ -124,7 +124,7 @@
                 informações sobre aspectos ambientais, socioeconômicos e
                 histórico-culturais desse território, bem como informações
                 complementares sobre cada espécie Criticamente em perigo e com
-                Dados insuficientes, disponíveis no 
+                Dados insuficientes, disponíveis no
                 <a href="http://dspace.jbrj.gov.br/jspui/handle/doc/41">Anexo</a>.
                 </p>
             </div>
@@ -141,13 +141,13 @@
                       Flora ameaçada do Cerrado Mineiro - Guia de Campo
                   </a>
               </h3>
-              <p> <i>Flora ameaçada do Cerrado mineiro - guia de campo </i>traz
+              <p align="justify"> <i>Flora ameaçada do Cerrado mineiro - guia de campo </i>traz
               informações redigidas em uma linguagem acessível para um público
               amplo, não especialista em botânica, visando aumentar o conhecimento
               sobre 82 espécies (64 Criticamente em perigo de extinção e 18 com Dados
               insuficientes) do Cerrado de Minas Gerais. O Guia de campo também auxilia a
               implementação de ações de conservação recomendadas nos Planos de Ação
-              Nacional - PANs. 
+              Nacional - PANs.
               </p>
           </div>
         </div>
@@ -157,7 +157,7 @@
           <a href="http://dspace.jbrj.gov.br/jspui/handle/doc/27" class="image left box-img"><img src="{{static_url}}/images/livro_vermelho_2014.jpg" alt="" /></a>
           <div class="inner">
             <h3><a href="http://dspace.jbrj.gov.br/jspui/handle/doc/27">Livro Vermelho da Flora do Brasil - Plantas Raras do Cerrado</a></h3>
-            <p>Apesar da profusão dos conceitos de raridade e das diferentes definições, é consenso
+            <p align="justify">Apesar da profusão dos conceitos de raridade e das diferentes definições, é consenso
               que espécies raras podem apresentar uma alta vulnerabilidade e, portanto, devem ser
               priorizadas em medidas de conservação. O Cerrado é atualmente considerado uma das
               áreas críticas para conservação e a perda de hábitat nesse bioma vem alcançando índices
@@ -176,7 +176,7 @@
 
               </a>
             </h3>
-            <p>O livro “Áreas Prioritárias para Conservação e Uso Sustentável da Flora Brasileira Ameaçada de Extinção” é um importante instrumento para elaboração de políticas públicas, pois indica as localidades no território nacional onde ações para reduzir o risco de extinção de espécies da flora brasileira podem ser mais efetivas, visando alcançar a Meta 11 do Plano Estratégico para a Conservação da Biodiversidade de Aichi (CDB) até 2020.</p>
+            <p align="justify">O livro “Áreas Prioritárias para Conservação e Uso Sustentável da Flora Brasileira Ameaçada de Extinção” é um importante instrumento para elaboração de políticas públicas, pois indica as localidades no território nacional onde ações para reduzir o risco de extinção de espécies da flora brasileira podem ser mais efetivas, visando alcançar a Meta 11 do Plano Estratégico para a Conservação da Biodiversidade de Aichi (CDB) até 2020.</p>
           </div>
         </div>
       </section>
@@ -188,7 +188,7 @@
             <h3>
               <a href="http://dspace.jbrj.gov.br/jspui/handle/doc/29">PAN Faveiro de Wilson </a>
             </h3>
-            <p>
+            <p align="justify">
             O Plano de Ação Nacional do faveiro-de-wilson (Dimorphandra wilsonii Rizzini), espécie Criticamente em perigo (CR) e endêmica de Minas Gerais, contém a melhor informação disponível sobre a espécie, além do planejamento com as ações necessárias para sua conservação.
             </p>
           </div>
@@ -229,9 +229,9 @@
         var count=0;
         for(var i=0;i<response.data.length && count < 3;i++) {
           var post = response.data[i];
-          if(typeof post == 'object' 
+          if(typeof post == 'object'
             && (post.type=='photo' || post.type == 'video')
-            && typeof post.message == 'string' 
+            && typeof post.message == 'string'
             && post.message.length >= 5) {
             var section = render('#noticia_tmpl');
             section.querySelector("img").src = post.picture;
