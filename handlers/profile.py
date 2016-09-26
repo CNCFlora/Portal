@@ -30,7 +30,7 @@ class ProfileHandler(MethodView, BaseHandler):
 
         last_modified_at = datetime.datetime.fromtimestamp(profile["metadata"]["modified"]).strftime('%d/%m/%Y - %H:%M:%S')
 
-        url = 'http://'+server+'/search/occurrences?q='+urllib.quote(  name[:1].upper()+name[1:] )+'&type=occurrence'
+        url = 'http://'+server+'/occurrences/scientificName/'+urllib.quote(  name[:1].upper()+name[1:] )
         json_data = requests.get(url)
         occurrences = json.loads(json_data.text)
         occurrence = []
@@ -46,7 +46,6 @@ class ProfileHandler(MethodView, BaseHandler):
             if "validation" in occ:
                 occ = occ["validation"]
                 if "by" in occ:
-                    #validador = occ["by"]
                     if occ["by"] is not None:
                         if specialist.find(occ["by"]) == -1:
                             if specialist=="":
