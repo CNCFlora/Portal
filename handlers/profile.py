@@ -23,6 +23,7 @@ class ProfileHandler(MethodView, BaseHandler):
           assessment["rationale"] = assessment["rationale"][1:]
 
         url = 'http://'+server+'/profiles/taxon/'+urllib.quote(  name[:1].upper()+name[1:] )
+
         json_data = requests.get(url)
         profile = json.loads(json_data.text)
 
@@ -36,22 +37,29 @@ class ProfileHandler(MethodView, BaseHandler):
         occurrence = []
         georeferencedBy = ""
         specialist = ""
-        for occ in occurrences:
-            if "georeferencedBy" in occ:
-                if georeferencedBy.find(occ["georeferencedBy"]) == -1:
-                    if georeferencedBy=="":
-                        georeferencedBy = occ["georeferencedBy"]
-                    else:
-                        georeferencedBy += ", " + occ["georeferencedBy"]
-            if "validation" in occ:
-                occ = occ["validation"]
-                if "by" in occ:
-                    if occ["by"] is not None:
-                        if specialist.find(occ["by"]) == -1:
-                            if specialist=="":
-                                specialist = occ["by"]
-                            else:
-                                specialist += ", " + occ["by"]
+        analyst = profile["metadata"]["creator"]
+
+        if "metadata" in profile and "validatedBy" in profile["metadata"]:
+            analyst = profile["metadata"]["contributor"]
+            georeferencedBy = profile["metadata"]["georeferencedBy"]
+            specialist = profile["metadata"]["validatedBy"]
+        else:
+            for occ in occurrences:
+                if "georeferencedBy" in occ:
+                    if georeferencedBy.find(occ["georeferencedBy"]) == -1:
+                        if georeferencedBy=="":
+                            georeferencedBy = occ["georeferencedBy"]
+                        else:
+                            georeferencedBy += ", " + occ["georeferencedBy"]
+                if "validation" in occ:
+                    occ = occ["validation"]
+                    if "by" in occ:
+                        if occ["by"] is not None:
+                            if specialist.find(occ["by"]) == -1:
+                                if specialist=="":
+                                    specialist = occ["by"]
+                                else:
+                                    specialist += ", " + occ["by"]
 
         references=[]
         if 'references' in assessment.keys():
@@ -73,4 +81,5 @@ class ProfileHandler(MethodView, BaseHandler):
                 georeferencedBy=georeferencedBy,
                 specialist=specialist,
                 last_modified_by=last_modified_by,
-                last_modified_at=last_modified_at)
+                last_modified_at=last_modified_at,
+                analyst=analyst)
