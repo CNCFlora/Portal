@@ -32,7 +32,7 @@
         <p class='assessor'><strong>Especialista(s): </strong> {{specialist}}</p>
         <br/>
         <p class='p'><strong>Justificativa </strong></p>
-        <p class='rationale'> {{assessment["rationale"]|safe}}</p>
+        <p class='rationale' align="justify"> {{assessment["rationale"]|safe}}</p>
         <!--
         <br /><p class='especialistas'><strong>Especialistas Bot&acirc;nicos</strong>: ".implode($spp->Especialistas,", ").".</p>";
         <p class='especialistas'><strong>Analistas de Dados</strong>: ".implode($spp->Analistas,", ").".</p>";
@@ -50,11 +50,15 @@
     <div class="seven columns map">
       {% if 'current' in assessment['taxon'] %}
       <h4>Taxonomia atual</h4>
-      <p>Atenção: as informações de taxonomia atuais podem ser diferentes das da data da avaliação.</p>
+      <p align="justify">Atenção: as informações de taxonomia atuais podem ser diferentes das da data da avaliação.</p>
       <p>
         <strong>Nome válido</strong>:
           <i>{{assessment['taxon']['current']['scientificNameWithoutAuthorship']}}</i>
           {{assessment['taxon']['current']['scientificNameAuthorship']}};
+      </p>
+      <p>
+        <strong>Família</strong>:
+          {{assessment['taxon']['current']['family']}}
       </p>
         {% if assessment['taxon']['current']['synonyms']|length >= 1 %}
         <p>
@@ -88,27 +92,27 @@
 
       {% if profile["economicValue"] and profile["economicValue"]["details"] and profile["economicValue"]["details"]|length > 1 %}
       <h4>Pot&ecirc;ncial valor econ&ocirc;mico</h4>
-      <p>{{profile["economicValue"]["details"]|safe}}</p>
+      <p align="justify">{{profile["economicValue"]["details"]|safe}}</p>
       {% endif %}
 
       {% if profile["population"] and profile["population"]["resume"] and profile["population"]["resume"]|length > 1 %}
       <h4>Dados populacionais</h4>
-      <p>{{profile["population"]["resume"]|safe}}</p>
+      <p align="justify">{{profile["population"]["resume"]|safe}}</p>
       {% endif %}
 
       {% if profile["distribution"] and profile["distribution"]["resume"] and profile["distribution"]["resume"]|length > 1 %}
       <h4>Distribuição</h4>
-      <p>{{profile["distribution"]["resume"]|safe}}</p>
+      <p align="justify">{{profile["distribution"]["resume"]|safe}}</p>
       {% endif %}
 
       {% if profile["ecology"] and profile["ecology"]["resume"] and profile["ecology"]["resume"]|length > 1 %}
       <h4>Ecologia</h4>
-      <p>{{profile["ecology"]["resume"]|safe}}</p>
+      <p align="justify">{{profile["ecology"]["resume"]|safe}}</p>
       {% endif %}
 
       {% if profile["reproduction"] and profile["reproduction"]["resume"] and profile["reproduction"]["resume"]|length > 1 %}
       <h4>Reprodução</h4>
-      <p>{{profile["reproduction"]["resume"]|safe}}</p>
+      <p align="justify">{{profile["reproduction"]["resume"]|safe}}</p>
       {% endif %}
     </div>
     <div class="sixteen columns">
@@ -117,7 +121,7 @@
       <h4>Amea&ccedil;as</h4>
       {% for threat in profile["threats"] %}
       {% if threat["threat"] %}
-      <p>
+      <p align="justify">
           <strong>{{threat["threat"]}}</strong><br />
           {% if threat["stress"] %}
               <strong>Stress</strong>
@@ -148,7 +152,7 @@
       <h4>A&ccedil;&otilde;es de conserva&ccedil;&atilde;o</h4>
       {% for action in profile["actions"] %}
       {% if action["action"] %}
-      <p>
+      <p align="justify">
         <strong>{{action["action"]}}</strong><br />
         {% if action["situation"] %}
         <b>Situa&ccedil;&atilde;o</b>: {{action['situation']}} <br />
@@ -166,7 +170,7 @@
       <h4>Usos</h4>
       {% for use in profile["users"] %}
       {% if use["use"] %}
-      <p>
+      <p align="justify">
       <strong>{{use["use"]}}</strong><br />
         {% if use["user"]["details"] %}
         <b>Observa&ccedil;&otilde;es</b>: {{use["details"]}}
@@ -178,8 +182,10 @@
     </div>
 
     <div class="sixteen columns biblio">
-      <h4>Bibliografia</h4>
-      <p>{{references_str}}</p>
+      <h4>Referências</h4>
+      {% for rfrc in references_str %}
+        <p align="justify"> - {{rfrc}}</p>
+      {% endfor %}
     </div>
 
     <div class="sixteen columns biblio">

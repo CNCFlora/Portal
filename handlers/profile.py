@@ -65,10 +65,11 @@ class ProfileHandler(MethodView, BaseHandler):
         if 'references' in assessment.keys():
             references=assessment[ "references" ],
 
-        references_str=""
+        references_str=[]
         for ref in references:
             for ref0 in ref:
-                references_str += " "+ref0
+                references_str.append(" "+ref0)
+                # references_str += " "+ref0
 
         return render_template(
                 'profile.html',
