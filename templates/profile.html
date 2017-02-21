@@ -1,23 +1,69 @@
 {% extends "layout-content.html" %}
 {% block content %}
 <!-- <article class="container"> -->
+<div class="tab">
+  <a href="javascript:void(0)" class="tablinks" onclick="openCity(event, '2012')" id="tag1">2012 - Livro Vermelho 2013</a>
+  {% if assessment2 %}<a href="javascript:void(0)" class="tablinks" onclick="openCity(event, '2017')" id="tag2">2017</a>{% endif %}
+</div>
+
 <section class="wrapper style1 project-page view-page">
+<style type="text/css">
+  h4 { font-size: 22px; }
+  hr {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 100%;
+    background-color:black;
+    height: 5px;
+    }
+    /* Style the tab */
+div.tab {
+   overflow: hidden;
+   /*border: 1px solid #ccc;*/
+   background-color: #f1f1f1;
+}
+
+/* Style the links inside the tab */
+div.tab a {
+   float: left;
+   display: block;
+   color: black;
+   border: 1px solid #ccc;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+   transition: 0.3s;
+   font-size: 17px;
+}
+
+/* Change background color of links on hover */
+div.tab a:hover {
+   background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab a:focus, .active {
+   background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+   display: none;
+   padding: 6px 12px;
+   border: 1px solid #ccc;
+   border-top: none;
+}
+</style>
+  <div id="2012" class="tabcontent">
   <div class="container">
-  <section class='especie'>
+  <section class='especie1'>
     <div class="sixteen columns">
         <h3 class='specie'>
           <i>{{assessment["taxon"]["scientificNameWithoutAuthorship"]}}</i> {{assessment["taxon"]["scientificNameAuthorship"]}}
           <img src="{{static_url}}/images/{{assessment["category"]}}.jpg" alt="{{assessment["category"]}}" class="iucn" />
         </h3>
     </div>
-    <style type="text/css"> h4 { font-size: 22px; } hr {
-  border: 0;
-  clear:both;
-  display:block;
-  width: 100%;
-  background-color:black;
-  height: 5px;
-} </style>
     <div class="sixteen columns">
       <h4>Informações da avaliação de risco de extinção</h4>
       <hr>
@@ -68,7 +114,7 @@
             <li>
               &gt;
               <i>{{syn['scientificNameWithoutAuthorship']}}</i>
-              {{syn['scientificNameAuthorship']}};
+              {{syn['scientificNameAuthSorship']}};
             </li>
             {% endfor %}
           </ul>
@@ -197,7 +243,199 @@
     </div>
   </section>
  </div>
-</section>
+</div>
+{% if assessment2 %}
+<div id="2017" class="tabcontent">
+    <div class="container">
+    <section class='especie2'>
+      <div class="sixteen columns">
+          <h3 class='specie'>
+            <i>{{assessment2["taxon"]["scientificNameWithoutAuthorship"]}}</i> {{assessment2["taxon"]["scientificNameAuthorship"]}}
+            <img src="{{static_url}}/images/{{assessment2["category"]}}.jpg" alt="{{assessment2["category"]}}" class="iucn" />
+          </h3>
+      </div>
+      <div class="sixteen columns">
+        <h4>Informações da avaliação de risco de extinção</h4>
+        <hr>
+      </div>
+      <div class="nine columns">
+          <p class='date'><strong>Data: </strong> {{assessment2["date"]}}</p>
+          <p class='criteria'><strong>Criterio: </strong> {{assessment2["criteria"]|default("N/A")}}</p>
+          <p class='assessor'><strong>Avaliador: </strong> {{assessment2["assessor"]}}</p>
+          <p class='evaluator'><strong>Revisor: </strong> {{assessment2["evaluator"]}}</p>
+          <p class='assessor'><strong>Analista(s) de Dados: </strong> {{analyst}}</p>
+          <p class='assessor'><strong>Analista(s) SIG: </strong> {{georeferencedBy}}</p>
+          <p class='assessor'><strong>Especialista(s): </strong> {{specialist}}</p>
+          <br/>
+          <p class='p'><strong>Justificativa </strong></p>
+          <p class='rationale' align="justify"> {{assessment2["rationale"]|safe}}</p>
+          <!--
+          <br /><p class='especialistas'><strong>Especialistas Bot&acirc;nicos</strong>: ".implode($spp->Especialistas,", ").".</p>";
+          <p class='especialistas'><strong>Analistas de Dados</strong>: ".implode($spp->Analistas,", ").".</p>";
+          <p class='especialistas'><strong>Analistas SIG</strong>: ".implode($spp->AnalistasSIG,", ").".</p>";
+          <?php include 'ficha.php' ?>
+          -->
+
+          <!--
+          <h4>Sin&ocirc;nimos</h4>
+          <ul>
+          </ul>
+          -->
+      </div>
+
+      <div class="seven columns map">
+        {% if 'current' in assessment2['taxon'] %}
+        <h4>Taxonomia atual</h4>
+        <p align="justify">Atenção: as informações de taxonomia atuais podem ser diferentes das da data da avaliação.</p>
+        <p>
+          <strong>Nome válido</strong>:
+            <i>{{assessment2['taxon']['current']['scientificNameWithoutAuthorship']}}</i>
+            {{assessment2['taxon']['current']['scientificNameAuthorship']}};
+        </p>
+        <p>
+          <strong>Família</strong>:
+            {{assessment2['taxon']['current']['family']}}
+        </p>
+          {% if assessment2['taxon']['current']['synonyms']|length >= 1 %}
+          <p>
+            <strong>Sinônimos</strong>:
+            <ul>
+              {% for syn in assessment2['taxon']['current']['synonyms'] %}
+              <li>
+                &gt;
+                <i>{{syn['scientificNameWithoutAuthorship']}}</i>
+                {{syn['scientificNameAuthSorship']}};
+              </li>
+              {% endfor %}
+            </ul>
+          </p>
+          {% endif %}
+        {% endif %}
+        <h4>Mapa de ocorrência</h4><a href="{{static_url}}/pdf/documentos/Metodologia_mapas_cncflora.pdf"> - Ver metodologia</a>
+        <img src="http://cncflora.jbrj.gov.br/arquivos/arquivos/mapas_jpg_atualizado/{{assessment2["taxon"]["scientificNameWithoutAuthorship"]}}.jpg" />
+      </div>
+
+      <div class="sixteen columns">
+        <h4>Informações sobre a espécie</h4>
+        <hr>
+      </div>
+
+      <div class="sixteen columns">
+        {% if profile["taxonomicNotes"] %}
+        <h4>Notas Taxon&ocirc;micas</h4>
+        <p>{{profile["taxonomicNotes"]["notes"]|safe}}</p>
+        {% endif %}
+
+        {% if profile["economicValue"] and profile["economicValue"]["details"] and profile["economicValue"]["details"]|length > 1 %}
+        <h4>Pot&ecirc;ncial valor econ&ocirc;mico</h4>
+        <p align="justify">{{profile["economicValue"]["details"]|safe}}</p>
+        {% endif %}
+
+        {% if profile["population"] and profile["population"]["resume"] and profile["population"]["resume"]|length > 1 %}
+        <h4>Dados populacionais</h4>
+        <p align="justify">{{profile["population"]["resume"]|safe}}</p>
+        {% endif %}
+
+        {% if profile["distribution"] and profile["distribution"]["resume"] and profile["distribution"]["resume"]|length > 1 %}
+        <h4>Distribuição</h4>
+        <p align="justify">{{profile["distribution"]["resume"]|safe}}</p>
+        {% endif %}
+
+        {% if profile["ecology"] and profile["ecology"]["resume"] and profile["ecology"]["resume"]|length > 1 %}
+        <h4>Ecologia</h4>
+        <p align="justify">{{profile["ecology"]["resume"]|safe}}</p>
+        {% endif %}
+
+        {% if profile["reproduction"] and profile["reproduction"]["resume"] and profile["reproduction"]["resume"]|length > 1 %}
+        <h4>Reprodução</h4>
+        <p align="justify">{{profile["reproduction"]["resume"]|safe}}</p>
+        {% endif %}
+      </div>
+      <div class="sixteen columns">
+
+        {% if profile["threats"] %}
+        <h4>Amea&ccedil;as</h4>
+        {% for threat in profile["threats"] %}
+        {% if threat["threat"] %}
+        <p align="justify">
+            <strong>{{threat["threat"]}}</strong><br />
+            {% if threat["stress"] %}
+                <strong>Stress</strong>
+                {{threat["stress"]}}
+            <br />
+            {% endif %}
+            {% if threat["incidence"] %}
+                <strong>Incid&ecirc;ncia</strong>
+                {{threat["incidence"]}}
+            <br />
+            {% endif %}
+            {% if threat["severity"] %}
+                <strong>Severidade</strong>
+                {{threat["severity"]}}
+            <br />
+            {% endif %}
+            {% if threat["details"] %}
+                <strong>Detalhes</strong>
+                {{threat["details"]}}
+              <br />
+            {% endif %}
+        </p>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+        {% if profile["actions"] %}
+        <h4>A&ccedil;&otilde;es de conserva&ccedil;&atilde;o</h4>
+        {% for action in profile["actions"] %}
+        {% if action["action"] %}
+        <p align="justify">
+          <strong>{{action["action"]}}</strong><br />
+          {% if action["situation"] %}
+          <b>Situa&ccedil;&atilde;o</b>: {{action['situation']}} <br />
+          {% endif %}
+          {% if action["details"] %}
+          <b>Observa&ccedil;&otilde;es</b>: {{action['details']}}  <br />
+          {% endif %}
+        </p>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+
+        {% if profile["uses"] %}
+        <h4>Usos</h4>
+        {% for use in profile["users"] %}
+        {% if use["use"] %}
+        <p align="justify">
+        <strong>{{use["use"]}}</strong><br />
+          {% if use["user"]["details"] %}
+          <b>Observa&ccedil;&otilde;es</b>: {{use["details"]}}
+          {% endif %}
+        </p>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+      </div>
+
+      <div class="sixteen columns biblio">
+        <h4>Referências</h4>
+        {% for rfrc in references_str %}
+          <p align="justify"> - {{rfrc}}</p>
+        {% endfor %}
+      </div>
+
+      <div class="sixteen columns biblio">
+        <h4>Como citar</h4>
+        <p contenteditable="plaintext-only">CNCFlora. <i>{{assessment2["taxon"]["scientificNameWithoutAuthorship"]}}</i> in Lista Vermelha da flora brasileira versão 2017.1 Centro Nacional de Conservação da Flora.
+        Disponível em <<q>http://cncflora.jbrj.gov.br/portal/pt-br/profile/{{assessment2["taxon"]["scientificNameWithoutAuthorship"]}}</q>>. Acesso em <span id="time"></span>.</p>
+        <br/>
+        <p align="right" style="color:green">Última edição por {{last_modified_by}} em {{last_modified_at}}</p>
+      </div>
+        </section>
+   </div>
+  </section>
+</div>
+{% endif %}
 
 <!-- </article> -->
 <script type="text/javascript">
@@ -213,5 +451,33 @@
 				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
+    document.getElementById("2012").style.display = "block";
+    document.getElementById("2012").focus();
+
+function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the link that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+    var today = new Date();
+    var nomeMes = new Array ("janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro")
+
+    document.getElementById('time').innerHTML=today.getDate() + " " + nomeMes[today.getMonth()] + " " + today.getFullYear();
+}
+
 </script>
 {% endblock %}

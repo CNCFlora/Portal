@@ -16,6 +16,12 @@ class ProfileHandler(MethodView, BaseHandler):
         url = 'http://'+server+'/assessments/taxon/'+urllib.quote(  name[:1].upper()+name[1:] )
         json_data = requests.get(url)
         assessment = json.loads(json_data.text)
+
+        #reavaliada
+        url = 'http://'+server+'/assessments/2taxon/'+urllib.quote(  name[:1].upper()+name[1:] )
+        json_data = requests.get(url)
+        assessment2 = json.loads(json_data.text)
+
         #print assessment["taxon"]
         assessment["date"] = datetime.datetime.fromtimestamp(assessment["metadata"]["created"]).strftime('%d-%m-%Y')
 
@@ -79,6 +85,7 @@ class ProfileHandler(MethodView, BaseHandler):
                 references_str=references_str,
                 profile=profile,
                 assessment=assessment,
+                assessment2=assessment2,
                 georeferencedBy=georeferencedBy,
                 specialist=specialist,
                 last_modified_by=last_modified_by,
