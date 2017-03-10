@@ -2,7 +2,7 @@
 {% block content %}
 <!-- <article class="container"> -->
 <div class="tab">
-  <a href="javascript:void(0)" class="tablinks" onclick="openCity(event, '2012')" id="tag1">2012 - Livro Vermelho 2013</a>
+  {% if assessment %}<a href="javascript:void(0)" class="tablinks" onclick="openCity(event, '2012')" id="tag1">2012 - Livro Vermelho 2013</a>{% endif %}
   {% if assessment2 %}<a href="javascript:void(0)" class="tablinks" onclick="openCity(event, '2017')" id="tag2">2017</a>{% endif %}
 </div>
 
@@ -55,6 +55,7 @@ div.tab a:focus, .active {
    border-top: none;
 }
 </style>
+  {% if assessment %}
   <div id="2012" class="tabcontent">
   <div class="container">
   <section class='especie1'>
@@ -244,6 +245,8 @@ div.tab a:focus, .active {
   </section>
  </div>
 </div>
+{% endif %}
+
 {% if assessment2 %}
 <div id="2017" class="tabcontent">
     <div class="container">
@@ -263,9 +266,9 @@ div.tab a:focus, .active {
           <p class='criteria'><strong>Criterio: </strong> {{assessment2["criteria"]|default("N/A")}}</p>
           <p class='assessor'><strong>Avaliador: </strong> {{assessment2["assessor"]}}</p>
           <p class='evaluator'><strong>Revisor: </strong> {{assessment2["evaluator"]}}</p>
-          <p class='assessor'><strong>Analista(s) de Dados: </strong> {{analyst}}</p>
-          <p class='assessor'><strong>Analista(s) SIG: </strong> {{georeferencedBy}}</p>
-          <p class='assessor'><strong>Especialista(s): </strong> {{specialist}}</p>
+          <p class='assessor'><strong>Analista(s) de Dados: </strong> {{analyst2}}</p>
+          <p class='assessor'><strong>Analista(s) SIG: </strong> {{georeferencedBy2}}</p>
+          <p class='assessor'><strong>Especialista(s): </strong> {{specialist2}}</p>
           <br/>
           <p class='p'><strong>Justificativa </strong></p>
           <p class='rationale' align="justify"> {{assessment2["rationale"]|safe}}</p>
@@ -321,41 +324,41 @@ div.tab a:focus, .active {
       </div>
 
       <div class="sixteen columns">
-        {% if profile["taxonomicNotes"] %}
+        {% if profile2["taxonomicNotes"] %}
         <h4>Notas Taxon&ocirc;micas</h4>
-        <p>{{profile["taxonomicNotes"]["notes"]|safe}}</p>
+        <p>{{profile2["taxonomicNotes"]["notes"]|safe}}</p>
         {% endif %}
 
-        {% if profile["economicValue"] and profile["economicValue"]["details"] and profile["economicValue"]["details"]|length > 1 %}
+        {% if profile2["economicValue"] and profile2["economicValue"]["details"] and profile2["economicValue"]["details"]|length > 1 %}
         <h4>Pot&ecirc;ncial valor econ&ocirc;mico</h4>
-        <p align="justify">{{profile["economicValue"]["details"]|safe}}</p>
+        <p align="justify">{{profile2["economicValue"]["details"]|safe}}</p>
         {% endif %}
 
-        {% if profile["population"] and profile["population"]["resume"] and profile["population"]["resume"]|length > 1 %}
+        {% if profile2["population"] and profile2["population"]["resume"] and profile2["population"]["resume"]|length > 1 %}
         <h4>Dados populacionais</h4>
-        <p align="justify">{{profile["population"]["resume"]|safe}}</p>
+        <p align="justify">{{profile2["population"]["resume"]|safe}}</p>
         {% endif %}
 
-        {% if profile["distribution"] and profile["distribution"]["resume"] and profile["distribution"]["resume"]|length > 1 %}
+        {% if profile2["distribution"] and profile2["distribution"]["resume"] and profile2["distribution"]["resume"]|length > 1 %}
         <h4>Distribuição</h4>
-        <p align="justify">{{profile["distribution"]["resume"]|safe}}</p>
+        <p align="justify">{{profile2["distribution"]["resume"]|safe}}</p>
         {% endif %}
 
-        {% if profile["ecology"] and profile["ecology"]["resume"] and profile["ecology"]["resume"]|length > 1 %}
+        {% if profile2["ecology"] and profile2["ecology"]["resume"] and profile2["ecology"]["resume"]|length > 1 %}
+        <p align="justify">{{profile2["ecology"]["resume"]|safe}}</p>
         <h4>Ecologia</h4>
-        <p align="justify">{{profile["ecology"]["resume"]|safe}}</p>
         {% endif %}
 
-        {% if profile["reproduction"] and profile["reproduction"]["resume"] and profile["reproduction"]["resume"]|length > 1 %}
+        {% if profile2["reproduction"] and profile2["reproduction"]["resume"] and profile2["reproduction"]["resume"]|length > 1 %}
         <h4>Reprodução</h4>
-        <p align="justify">{{profile["reproduction"]["resume"]|safe}}</p>
+        <p align="justify">{{profile2["reproduction"]["resume"]|safe}}</p>
         {% endif %}
       </div>
       <div class="sixteen columns">
 
-        {% if profile["threats"] %}
+        {% if profile2["threats"] %}
         <h4>Amea&ccedil;as</h4>
-        {% for threat in profile["threats"] %}
+        {% for threat in profile2["threats"] %}
         {% if threat["threat"] %}
         <p align="justify">
             <strong>{{threat["threat"]}}</strong><br />
@@ -384,9 +387,9 @@ div.tab a:focus, .active {
         {% endfor %}
         {% endif %}
 
-        {% if profile["actions"] %}
+        {% if profile2["actions"] %}
         <h4>A&ccedil;&otilde;es de conserva&ccedil;&atilde;o</h4>
-        {% for action in profile["actions"] %}
+        {% for action in profile2["actions"] %}
         {% if action["action"] %}
         <p align="justify">
           <strong>{{action["action"]}}</strong><br />
@@ -402,7 +405,7 @@ div.tab a:focus, .active {
         {% endif %}
 
 
-        {% if profile["uses"] %}
+        {% if profile2["uses"] %}
         <h4>Usos</h4>
         {% for use in profile["users"] %}
         {% if use["use"] %}
@@ -419,7 +422,7 @@ div.tab a:focus, .active {
 
       <div class="sixteen columns biblio">
         <h4>Referências</h4>
-        {% for rfrc in references_str %}
+        {% for rfrc in references_str2 %}
           <p align="justify"> - {{rfrc}}</p>
         {% endfor %}
       </div>
@@ -429,7 +432,7 @@ div.tab a:focus, .active {
         <p contenteditable="plaintext-only">CNCFlora. <i>{{assessment2["taxon"]["scientificNameWithoutAuthorship"]}}</i> in Lista Vermelha da flora brasileira versão 2017.1 Centro Nacional de Conservação da Flora.
         Disponível em <<q>http://cncflora.jbrj.gov.br/portal/pt-br/profile/{{assessment2["taxon"]["scientificNameWithoutAuthorship"]}}</q>>. Acesso em <span id="time"></span>.</p>
         <br/>
-        <p align="right" style="color:green">Última edição por {{last_modified_by}} em {{last_modified_at}}</p>
+        <p align="right" style="color:green">Última edição por {{last_modified_by2}} em {{last_modified_at2}}</p>
       </div>
         </section>
    </div>
