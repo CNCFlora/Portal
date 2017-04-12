@@ -123,7 +123,11 @@ div.tab a:focus, .active {
         {% endif %}
       {% endif %}
       <h4>Mapa de ocorrência</h4><a href="{{static_url}}/pdf/documentos/Metodologia_mapas_cncflora.pdf"> - Ver metodologia</a>
-      <img src="http://cncflora.jbrj.gov.br/arquivos/arquivos/mapas/{{assessment["taxon"]["scientificNameWithoutAuthorship"]}}.jpg" />
+      {% if assessment2["category"] == "DD" %}
+        <img src="http://cncflora.jbrj.gov.br/arquivos/arquivos/mapas_dd_abril_17/{{assessment2["taxon"]["scientificNameWithoutAuthorship"]}}.jpg" />
+      {% else %}
+        <img src="http://cncflora.jbrj.gov.br/arquivos/arquivos/mapas/{{assessment2["taxon"]["scientificNameWithoutAuthorship"]}}.jpg" />
+      {% endif %}
     </div>
 
     <div class="sixteen columns">
@@ -315,7 +319,11 @@ div.tab a:focus, .active {
           {% endif %}
         {% endif %}
         <h4>Mapa de ocorrência</h4><a href="{{static_url}}/pdf/documentos/Metodologia_mapas_cncflora.pdf"> - Ver metodologia</a>
-        <img src="http://cncflora.jbrj.gov.br/arquivos/arquivos/mapas_jpg_atualizado/{{assessment2["taxon"]["scientificNameWithoutAuthorship"]}}.jpg" />
+        {% if assessment2["category"] == "DD" %}
+          <img src="http://cncflora.jbrj.gov.br/arquivos/arquivos/mapas_dd_abril_17/{{assessment2["taxon"]["scientificNameWithoutAuthorship"]}}.jpg" />
+        {% else %}
+          <img src="http://cncflora.jbrj.gov.br/arquivos/arquivos/mapas_jpg_atualizado/{{assessment2["taxon"]["scientificNameWithoutAuthorship"]}}.jpg" />
+        {% endif %}
       </div>
 
       <div class="sixteen columns">
