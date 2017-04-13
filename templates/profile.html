@@ -123,10 +123,10 @@ div.tab a:focus, .active {
         {% endif %}
       {% endif %}
       <h4>Mapa de ocorrência</h4><a href="{{static_url}}/pdf/documentos/Metodologia_mapas_cncflora.pdf"> - Ver metodologia</a>
-      {% if assessment2["category"] == "DD" %}
-        <img src="http://cncflora.jbrj.gov.br/arquivos/arquivos/mapas_dd_abril_17/{{assessment2["taxon"]["scientificNameWithoutAuthorship"]}}.jpg" />
+      {% if assessment["category"] == "DD" %}
+        <img src="http://cncflora.jbrj.gov.br/arquivos/arquivos/mapas_dd_abril_17/{{assessment["taxon"]["scientificNameWithoutAuthorship"]}}.jpg" />
       {% else %}
-        <img src="http://cncflora.jbrj.gov.br/arquivos/arquivos/mapas/{{assessment2["taxon"]["scientificNameWithoutAuthorship"]}}.jpg" />
+        <img src="http://cncflora.jbrj.gov.br/arquivos/arquivos/mapas/{{assessment["taxon"]["scientificNameWithoutAuthorship"]}}.jpg" />
       {% endif %}
     </div>
 
