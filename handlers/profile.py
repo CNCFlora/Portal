@@ -17,12 +17,20 @@ class ProfileHandler(MethodView, BaseHandler):
         json_data = requests.get(url)
         assessment = json.loads(json_data.text)
         profile2 = "";
+        profile3 = "";
         last_modified_by2 = "";
+        last_modified_by3 = "";
         last_modified_at2 = "";
+        last_modified_at3 = "";
         assessment2 = "";
+        assessment3 = "";
         analyst2 = "";
+        analyst3 = "";
         georeferencedBy2 = "";
+        georeferencedBy3 = "";
         specialist2 = "";
+        specialist3 = "";
+        references_str3 = "";
         references_str2 = "";
         profile = "";
         last_modified_by = "";
@@ -96,6 +104,66 @@ class ProfileHandler(MethodView, BaseHandler):
                         references_str2.append(" "+ref0)
                         # references_str += " "+ref0
 
+            #especie nova publicada
+            url = 'http://'+server+'/assessments/3taxon/'+urllib.quote(  name[:1].upper()+name[1:] )
+            json_data = requests.get(url)
+            assessment3 = json.loads(json_data.text)
+
+            if assessment3["public"]:
+                assessment3["date"] = datetime.datetime.fromtimestamp(int(assessment3["metadata"]["created"])).strftime('%d-%m-%Y')
+
+                if assessment3["rationale"][0] == '?':
+                  assessment3["rationale"] = assessment3["rationale"][1:]
+
+                url = 'http://'+server+'/profiles/3taxon/'+urllib.quote(  name[:1].upper()+name[1:] )
+
+                json_data = requests.get(url)
+                profile3 = json.loads(json_data.text)
+
+                last_modified_by3 = profile3["metadata"]["contributor"].split(";")[0]
+
+                last_modified_at3 = datetime.datetime.fromtimestamp(profile3["metadata"]["modified"]).strftime('%d/%m/%Y - %H:%M:%S')
+
+                url = 'http://'+server+'/occurrences/3scientificName/'+urllib.quote(name[:1].upper()+name[1:])
+                json_data = requests.get(url)
+                occurrences3 = json.loads(json_data.text)
+                occurrence = []
+                georeferencedBy3 = ""
+                specialist3 = ""
+                analyst3 = profile3["metadata"]["creator"]
+
+                if "metadata" in profile3 and "validatedBy" in profile3["metadata"]:
+                    analyst3 = profile3["metadata"]["contributor"]
+                    georeferencedBy3 = profile3["metadata"]["georeferencedBy"]
+                    specialist3 = profile3["metadata"]["validatedBy"]
+                else:
+                    for occ in occurrences3:
+                        if "georeferencedBy" in occ:
+                            if georeferencedBy3.find(occ["georeferencedBy"]) == -1:
+                                if georeferencedBy3=="":
+                                    georeferencedBy3 = occ["georeferencedBy"]
+                                else:
+                                    georeferencedBy3 += ", " + occ["georeferencedBy"]
+                        if "validation" in occ:
+                            occ = occ["validation"]
+                            if "by" in occ:
+                                if occ["by"] is not None:
+                                    if specialist3.find(occ["by"]) == -1:
+                                        if specialist3=="":
+                                            specialist3 = occ["by"]
+                                        else:
+                                            specialist3 += ", " + occ["by"]
+
+                references3=[]
+                if 'references' in assessment3.keys():
+                    references3=assessment3[ "references" ],
+
+                references_str3=[]
+                for ref in references3:
+                    for ref0 in ref:
+                        references_str3.append(" "+ref0)
+                        # references_str += " "+ref0
+
         if assessment:
             assessment["date"] = datetime.datetime.fromtimestamp(assessment["metadata"]["created"]).strftime('%d-%m-%Y')
 
@@ -157,18 +225,26 @@ class ProfileHandler(MethodView, BaseHandler):
                 static_url=self.static_url,
                 references_str=references_str,
                 references_str2=references_str2,
+                references_str3=references_str3,
                 profile=profile,
                 profile2=profile2,
+                profile3=profile3,
                 assessment=assessment,
                 #waiting for publication
                 #assessment2=assessment2,
+                assessment3=assessment3,
                 georeferencedBy=georeferencedBy,
                 georeferencedBy2=georeferencedBy2,
+                georeferencedBy3=georeferencedBy3,
                 specialist=specialist,
                 specialist2=specialist2,
+                specialist3=specialist3,
                 last_modified_by=last_modified_by,
                 last_modified_by2=last_modified_by2,
+                last_modified_by3=last_modified_by3,
                 last_modified_at=last_modified_at,
                 last_modified_at2=last_modified_at2,
+                last_modified_at3=last_modified_at3,
                 analyst=analyst,
-                analyst2=analyst2)
+                analyst2=analyst2,
+                analyst3=analyst3)

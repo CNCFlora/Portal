@@ -3,7 +3,8 @@
 <!-- <article class="container"> -->
 <div class="tab">
   {% if assessment %}<a href="javascript:void(0)" class="tablinks" onclick="openCity(event, '2012')" id="tag1">2012 - Livro Vermelho 2013</a>{% endif %}
-  {% if assessment2 %}<a href="javascript:void(0)" class="tablinks" onclick="openCity(event, '2017')" id="tag2">2017</a>{% endif %}
+  {% if assessment2 %}<a href="javascript:void(0)" class="tablinks" onclick="openCity(event, '2017LV')" id="tag2">2017 - Livro Vermelho 2017</a>{% endif %}
+  {% if assessment3 %}<a href="javascript:void(0)" class="tablinks" onclick="openCity(event, '2017')" id="tag3">2017</a>{% endif %}
 </div>
 
 <section class="wrapper style1 project-page view-page">
@@ -252,7 +253,7 @@ div.tab a:focus, .active {
 {% endif %}
 
 {% if assessment2 %}
-<div id="2017" class="tabcontent">
+<div id="2017LV" class="tabcontent">
     <div class="container">
     <section class='especie2'>
       <div class="sixteen columns">
@@ -441,6 +442,203 @@ div.tab a:focus, .active {
         Disponível em <<q>http://cncflora.jbrj.gov.br/portal/pt-br/profile/{{assessment2["taxon"]["scientificNameWithoutAuthorship"]}}</q>>. Acesso em <span id="time"></span>.</p>
         <br/>
         <p align="right" style="color:green">Última edição por {{last_modified_by2}} em {{last_modified_at2}}</p>
+      </div>
+        </section>
+   </div>
+  </section>
+</div>
+{% endif %}
+
+{% if assessment3 %}
+<div id="2017" class="tabcontent">
+    <div class="container">
+    <section class='especie3'>
+      <div class="sixteen columns">
+          <h3 class='specie'>
+            <i>{{assessment3["taxon"]["scientificNameWithoutAuthorship"]}}</i> {{assessment3["taxon"]["scientificNameAuthorship"]}}
+            <img src="{{static_url}}/images/{{assessment3["category"]}}.jpg" alt="{{assessment3["category"]}}" class="iucn" />
+          </h3>
+      </div>
+      <div class="sixteen columns">
+        <h4>Informações da avaliação de risco de extinção</h4>
+        <hr>
+      </div>
+      <div class="nine columns">
+          <p class='date'><strong>Data: </strong> {{assessment3["date"]}}</p>
+          <p class='criteria'><strong>Criterio: </strong> {{assessment3["criteria"]|default("N/A")}}</p>
+          <p class='assessor'><strong>Avaliador: </strong> {{assessment3["assessor"]}}</p>
+          <p class='evaluator'><strong>Revisor: </strong> {{assessment3["evaluator"]}}</p>
+          <p class='assessor'><strong>Analista(s) de Dados: </strong> {{analyst3}}</p>
+          <p class='assessor'><strong>Analista(s) SIG: </strong> {{georeferencedBy3}}</p>
+          <p class='assessor'><strong>Especialista(s): </strong> {{specialist3}}</p>
+          <br/>
+          <p class='p'><strong>Justificativa </strong></p>
+          <p class='rationale' align="justify"> {{assessment3["rationale"]|safe}}</p>
+          <!--
+          <br /><p class='especialistas'><strong>Especialistas Bot&acirc;nicos</strong>: ".implode($spp->Especialistas,", ").".</p>";
+          <p class='especialistas'><strong>Analistas de Dados</strong>: ".implode($spp->Analistas,", ").".</p>";
+          <p class='especialistas'><strong>Analistas SIG</strong>: ".implode($spp->AnalistasSIG,", ").".</p>";
+          <?php include 'ficha.php' ?>
+          -->
+
+          <!--
+          <h4>Sin&ocirc;nimos</h4>
+          <ul>
+          </ul>
+          -->
+      </div>
+
+      <div class="seven columns map">
+        {% if 'current' in assessment3['taxon'] %}
+        <h4>Taxonomia atual</h4>
+        <p align="justify">Atenção: as informações de taxonomia atuais podem ser diferentes das da data da avaliação.</p>
+        <p>
+          <strong>Nome válido</strong>:
+            <i>{{assessment3['taxon']['current']['scientificNameWithoutAuthorship']}}</i>
+            {{assessment3['taxon']['current']['scientificNameAuthorship']}};
+        </p>
+        <p>
+          <strong>Família</strong>:
+            {{assessment3['taxon']['current']['family']}}
+        </p>
+          {% if assessment3['taxon']['current']['synonyms']|length >= 1 %}
+          <p>
+            <strong>Sinônimos</strong>:
+            <ul>
+              {% for syn in assessment3['taxon']['current']['synonyms'] %}
+              <li>
+                &gt;
+                <i>{{syn['scientificNameWithoutAuthorship']}}</i>
+                {{syn['scientificNameAuthSorship']}};
+              </li>
+              {% endfor %}
+            </ul>
+          </p>
+          {% endif %}
+        {% endif %}
+        <h4>Mapa de ocorrência</h4><a href="{{static_url}}/pdf/documentos/Metodologia_mapas_cncflora.pdf"> - Ver metodologia</a>
+        {% if assessment3["category"] == "DD" %}
+          <img src="http://cncflora.jbrj.gov.br/arquivos/arquivos/mapas_dd_abril_17/{{assessment3["taxon"]["scientificNameWithoutAuthorship"]}}.jpg" />
+        {% else %}
+          <img src="http://cncflora.jbrj.gov.br/arquivos/arquivos/mapas/{{assessment3["taxon"]["scientificNameWithoutAuthorship"]}}.jpg" />
+        {% endif %}
+      </div>
+
+      <div class="sixteen columns">
+        <h4>Informações sobre a espécie</h4>
+        <hr>
+      </div>
+
+      <div class="sixteen columns">
+        {% if profile3["taxonomicNotes"] %}
+        <h4>Notas Taxon&ocirc;micas</h4>
+        <p>{{profile3["taxonomicNotes"]["notes"]|safe}}</p>
+        {% endif %}
+
+        {% if profile3["economicValue"] and profile3["economicValue"]["details"] and profile3["economicValue"]["details"]|length > 1 %}
+        <h4>Pot&ecirc;ncial valor econ&ocirc;mico</h4>
+        <p align="justify">{{profile3["economicValue"]["details"]|safe}}</p>
+        {% endif %}
+
+        {% if profile3["population"] and profile3["population"]["resume"] and profile3["population"]["resume"]|length > 1 %}
+        <h4>Dados populacionais</h4>
+        <p align="justify">{{profile3["population"]["resume"]|safe}}</p>
+        {% endif %}
+
+        {% if profile3["distribution"] and profile3["distribution"]["resume"] and profile3["distribution"]["resume"]|length > 1 %}
+        <h4>Distribuição</h4>
+        <p align="justify">{{profile3["distribution"]["resume"]|safe}}</p>
+        {% endif %}
+
+        {% if profile3["ecology"] and profile3["ecology"]["resume"] and profile3["ecology"]["resume"]|length > 1 %}
+        <p align="justify">{{profile3["ecology"]["resume"]|safe}}</p>
+        <h4>Ecologia</h4>
+        {% endif %}
+
+        {% if profile3["reproduction"] and profile3["reproduction"]["resume"] and profile3["reproduction"]["resume"]|length > 1 %}
+        <h4>Reprodução</h4>
+        <p align="justify">{{profile3["reproduction"]["resume"]|safe}}</p>
+        {% endif %}
+      </div>
+      <div class="sixteen columns">
+
+        {% if profile3["threats"] %}
+        <h4>Amea&ccedil;as</h4>
+        {% for threat in profile3["threats"] %}
+        {% if threat["threat"] %}
+        <p align="justify">
+            <strong>{{threat["threat"]}}</strong><br />
+            {% if threat["stress"] %}
+                <strong>Stress</strong>
+                {{threat["stress"]}}
+            <br />
+            {% endif %}
+            {% if threat["incidence"] %}
+                <strong>Incid&ecirc;ncia</strong>
+                {{threat["incidence"]}}
+            <br />
+            {% endif %}
+            {% if threat["severity"] %}
+                <strong>Severidade</strong>
+                {{threat["severity"]}}
+            <br />
+            {% endif %}
+            {% if threat["details"] %}
+                <strong>Detalhes</strong>
+                {{threat["details"]}}
+              <br />
+            {% endif %}
+        </p>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+        {% if profile3["actions"] %}
+        <h4>A&ccedil;&otilde;es de conserva&ccedil;&atilde;o</h4>
+        {% for action in profile3["actions"] %}
+        {% if action["action"] %}
+        <p align="justify">
+          <strong>{{action["action"]}}</strong><br />
+          {% if action["situation"] %}
+          <b>Situa&ccedil;&atilde;o</b>: {{action['situation']}} <br />
+          {% endif %}
+          {% if action["details"] %}
+          <b>Observa&ccedil;&otilde;es</b>: {{action['details']}}  <br />
+          {% endif %}
+        </p>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+
+        {% if profile3["uses"] %}
+        <h4>Usos</h4>
+        {% for use in profile["users"] %}
+        {% if use["use"] %}
+        <p align="justify">
+        <strong>{{use["use"]}}</strong><br />
+          {% if use["user"]["details"] %}
+          <b>Observa&ccedil;&otilde;es</b>: {{use["details"]}}
+          {% endif %}
+        </p>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+      </div>
+
+      <div class="sixteen columns biblio">
+        <h4>Referências</h4>
+        {% for rfrc in references_str3 %}
+          <p align="justify"> - {{rfrc}}</p>
+        {% endfor %}
+      </div>
+
+      <div class="sixteen columns biblio">
+        <h4>Como citar</h4>
+        <p contenteditable="plaintext-only">CNCFlora. <i>{{assessment3["taxon"]["scientificNameWithoutAuthorship"]}}</i> in Lista Vermelha da flora brasileira versão 2017.1 Centro Nacional de Conservação da Flora.
+        Disponível em <<q>http://cncflora.jbrj.gov.br/portal/pt-br/profile/{{assessment3["taxon"]["scientificNameWithoutAuthorship"]}}</q>>. Acesso em <span id="time"></span>.</p>
+        <br/>
+        <p align="right" style="color:green">Última edição por {{last_modified_by3}} em {{last_modified_at3}}</p>
       </div>
         </section>
    </div>
