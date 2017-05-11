@@ -109,7 +109,7 @@ class ProfileHandler(MethodView, BaseHandler):
             json_data = requests.get(url)
             assessment3 = json.loads(json_data.text)
 
-            if assessment3["public"]:
+            if assessment3 and assessment3["public"]:
                 assessment3["date"] = datetime.datetime.fromtimestamp(int(assessment3["metadata"]["created"])).strftime('%d-%m-%Y')
 
                 if assessment3["rationale"][0] == '?':
