@@ -219,6 +219,9 @@ class ProfileHandler(MethodView, BaseHandler):
                 for ref0 in ref:
                     references_str.append(" "+ref0)
 
+            if assessment3 and assessment["rationale"] == assessment3["rationale"]:
+                assessment = "";
+
         return render_template(
                 'profile.html',
                 language=language,
