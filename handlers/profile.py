@@ -60,49 +60,50 @@ class ProfileHandler(MethodView, BaseHandler):
                 json_data = requests.get(url)
                 profile2 = json.loads(json_data.text)
 
-                last_modified_by2 = profile2["metadata"]["contributor"].split(";")[0]
+                if profile2:
+                    last_modified_by2 = profile2["metadata"]["contributor"].split(";")[0]
 
-                last_modified_at2 = datetime.datetime.fromtimestamp(profile2["metadata"]["modified"]).strftime('%d/%m/%Y - %H:%M:%S')
+                    last_modified_at2 = datetime.datetime.fromtimestamp(profile2["metadata"]["modified"]).strftime('%d/%m/%Y - %H:%M:%S')
 
-                url = 'http://'+server+'/occurrences/2scientificName/'+urllib.quote(  name[:1].upper()+name[1:] )
-                json_data = requests.get(url)
-                occurrences2 = json.loads(json_data.text)
-                occurrence = []
-                georeferencedBy2 = ""
-                specialist2 = ""
-                analyst2 = profile2["metadata"]["creator"]
+                    url = 'http://'+server+'/occurrences/2scientificName/'+urllib.quote(  name[:1].upper()+name[1:] )
+                    json_data = requests.get(url)
+                    occurrences2 = json.loads(json_data.text)
+                    occurrence = []
+                    georeferencedBy2 = ""
+                    specialist2 = ""
+                    analyst2 = profile2["metadata"]["creator"]
 
-                if "metadata" in profile2 and "validatedBy" in profile2["metadata"]:
-                    analyst2 = profile2["metadata"]["contributor"]
-                    georeferencedBy2 = profile2["metadata"]["georeferencedBy"]
-                    specialist2 = profile2["metadata"]["validatedBy"]
-                else:
-                    for occ in occurrences2:
-                        if "georeferencedBy" in occ:
-                            if georeferencedBy2.find(occ["georeferencedBy"]) == -1:
-                                if georeferencedBy2=="":
-                                    georeferencedBy2 = occ["georeferencedBy"]
-                                else:
-                                    georeferencedBy2 += ", " + occ["georeferencedBy"]
-                        if "validation" in occ:
-                            occ = occ["validation"]
-                            if "by" in occ:
-                                if occ["by"] is not None:
-                                    if specialist2.find(occ["by"]) == -1:
-                                        if specialist2=="":
-                                            specialist2 = occ["by"]
-                                        else:
-                                            specialist2 += ", " + occ["by"]
+                    if "metadata" in profile2 and "validatedBy" in profile2["metadata"]:
+                        analyst2 = profile2["metadata"]["contributor"]
+                        georeferencedBy2 = profile2["metadata"]["georeferencedBy"]
+                        specialist2 = profile2["metadata"]["validatedBy"]
+                    else:
+                        for occ in occurrences2:
+                            if "georeferencedBy" in occ:
+                                if georeferencedBy2.find(occ["georeferencedBy"]) == -1:
+                                    if georeferencedBy2=="":
+                                        georeferencedBy2 = occ["georeferencedBy"]
+                                    else:
+                                        georeferencedBy2 += ", " + occ["georeferencedBy"]
+                            if "validation" in occ:
+                                occ = occ["validation"]
+                                if "by" in occ:
+                                    if occ["by"] is not None:
+                                        if specialist2.find(occ["by"]) == -1:
+                                            if specialist2=="":
+                                                specialist2 = occ["by"]
+                                            else:
+                                                specialist2 += ", " + occ["by"]
 
-                references2=[]
-                if 'references' in assessment2.keys():
-                    references2=assessment2[ "references" ],
+                    references2=[]
+                    if 'references' in assessment2.keys():
+                        references2=assessment2[ "references" ],
 
-                references_str2=[]
-                for ref in references2:
-                    for ref0 in ref:
-                        references_str2.append(" "+ref0)
-                        # references_str += " "+ref0
+                    references_str2=[]
+                    for ref in references2:
+                        for ref0 in ref:
+                            references_str2.append(" "+ref0)
+                            # references_str += " "+ref0
 
             #especie nova publicada
             url = 'http://'+server+'/assessments/3taxon/'+urllib.quote(  name[:1].upper()+name[1:] )
