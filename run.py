@@ -6,7 +6,6 @@ import json
 import logging
 import requests
 import urllib2
-from flask_marrowmailer import Mailer
 from handlers.home import HomeHandler
 from handlers.redlist import RedlistHandler
 from handlers.document import DocumentHandler
@@ -34,7 +33,6 @@ app.config['MARROWMAILER_CONFIG'] = {
     'transport.password': 'sistema@cncflora',
 }
 app.url_map.strict_slashes = False
-mailer = Mailer(app)
 
 app.add_url_rule('/', view_func=HomeHandler.as_view('home'))
 app.add_url_rule('/<language>/listavermelha',defaults={'family': None},
